@@ -1,0 +1,12 @@
+{
+  "name": "bendevs",
+  "version": "0.0.1",
+  "description": "Website to showcase my projects",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "prettier": "3.0.3"
+  }
+}
