@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "bendevs-81fe2",
     "public": "dist",
     "ignore": [
       "firebase.json",

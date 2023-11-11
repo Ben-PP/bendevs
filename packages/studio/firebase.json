@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "studio-bendevs",
     "public": "dist",
     "ignore": [
       "firebase.json",
