@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
-  const navItemStyle = ''
+  const navItemStyle = 'm-2'
   return (
     <div className='sticky w-full bg-green-300 flex justify-between'>
       <Link className={navItemStyle} to='/'>
