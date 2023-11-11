@@ -9,9 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: yarn run build
+      - run: yarn --immutable
+      - run: yarn workspace web build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BENDEVS_81FE2 }}'
           projectId: bendevs-81fe2
+          entryPoint: ./packages/web
