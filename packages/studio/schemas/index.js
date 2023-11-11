@@ -1,4 +1,4 @@
-import work from './work'
+import jobs from './jobs'
 import projects from './projects'
 
-export const schemaTypes = [work, projects]
+export const schemaTypes = [jobs, projects]

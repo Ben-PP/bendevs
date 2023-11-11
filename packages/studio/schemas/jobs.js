@@ -1,7 +1,7 @@
 export default {
-  name: 'work',
+  name: 'jobs',
   type: 'document',
-  title: 'Work',
+  title: 'Jobs',
   fields: [
     {
       name: 'company',
