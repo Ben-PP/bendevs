@@ -6,7 +6,6 @@ import {schemaTypes} from './schemas'
 export default defineConfig({
   name: 'default',
   title: 'bendevs',
-
   projectId: 'c1ml1moo',
   dataset: 'production',
 
