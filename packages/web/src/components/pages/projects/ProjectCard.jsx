@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import BlockContent from '@sanity/block-content-to-react'
 
 const ProjectCard = ({ project }) => {
   return (
