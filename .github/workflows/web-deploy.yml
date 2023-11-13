@@ -3,6 +3,8 @@
 
 name: Deploy web to Firebase on merge
 'on':
+  repository_dispatch:
+    types: [deploy_web_from_sanity]
   push:
     branches:
       - main
