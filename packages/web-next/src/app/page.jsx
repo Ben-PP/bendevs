@@ -1,6 +1,7 @@
 import { groq } from 'next-sanity'
 import { PortableText } from '@portabletext/react'
 import sanityClient from '../sanityClient'
+import fetchOptions from '../utils/fetchOption'
 
 const query = groq`
   *[_type == "frontpage"] {
@@ -9,7 +10,7 @@ const query = groq`
   }
 `
 const getBlocks = async () => {
-  const response = await sanityClient.fetch(query)
+  const response = await sanityClient.fetch(query, fetchOptions)
   return response[0].items
 }
 
@@ -19,7 +20,7 @@ const Home = async () => {
   const components = {
     block: {
       h1: ({ children }) => <h1 className='text-3xl'>{children}</h1>,
-      default: ({ childer }) => <p>{children}</p>
+      default: ({ children }) => <p>{children}</p>
     }
   }
 

@@ -1,14 +1,14 @@
 import { groq } from 'next-sanity'
-import { PortableText } from '@portabletext/react'
 import sanityClient from '../../sanityClient'
 import ProjectCard from '../../components/ProjectCard'
+import fetchOptions from '../../utils/fetchOption'
 
 const query = groq`
   *[_type == "projects"]
 `
 
 const getBlocks = async () => {
-  const response = await sanityClient.fetch(query)
+  const response = await sanityClient.fetch(query, fetchOptions)
   return response
 }
 
