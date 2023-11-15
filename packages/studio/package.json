@@ -15,6 +15,9 @@
     "sanity"
   ],
   "dependencies": {
+    "@octokit/core": "^5.0.1",
+    "@sanity/dashboard": "^3.1.5",
+    "@sanity/studio-secrets": "^2.0.2",
     "@sanity/vision": "^3.19.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -28,11 +31,5 @@
     "eslint": "^8.6.0",
     "prettier": "^3.0.3",
     "typescript": "^5.1.6"
-  },
-  "prettier": {
-    "semi": false,
-    "printWidth": 100,
-    "bracketSpacing": false,
-    "singleQuote": true
   }
 }
