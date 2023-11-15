@@ -1,8 +1,7 @@
 export default {
-  name: 'frontpage',
-  title: 'Frontpage',
+  name: 'projectsList',
   type: 'document',
-  sortable: 'true',
+  title: 'Projects',
   fields: [
     {
       name: 'items',
@@ -11,7 +10,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{ type: 'contentBlocks' }]
+          to: [{ type: 'projects' }]
         }
       ]
     }
@@ -19,7 +18,7 @@ export default {
   preview: {
     prepare() {
       return {
-        title: 'Front Page'
+        title: 'Projects'
       }
     }
   }

@@ -1,7 +1,7 @@
 export default {
-  name: 'frontpage',
-  title: 'Frontpage',
+  name: 'jobsList',
   type: 'document',
+  title: 'Jobs',
   sortable: 'true',
   fields: [
     {
@@ -11,7 +11,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{ type: 'contentBlocks' }]
+          to: [{ type: 'workExperiences' }]
         }
       ]
     }
@@ -19,7 +19,7 @@ export default {
   preview: {
     prepare() {
       return {
-        title: 'Front Page'
+        title: 'Jobs'
       }
     }
   }

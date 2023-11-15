@@ -1,8 +1,7 @@
 export default {
-  name: 'frontpage',
-  title: 'Frontpage',
+  name: 'aboutpage',
   type: 'document',
-  sortable: 'true',
+  title: 'About',
   fields: [
     {
       name: 'items',

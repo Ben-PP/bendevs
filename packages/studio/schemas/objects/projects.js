@@ -15,12 +15,13 @@ export default {
       options: {
         source: 'name',
         maxLength: 100,
-        slugify: input => input
-        .toLowerCase()
-        .replace(/\s+/g, '-')
-        .replaceAll('ä', 'a')
-        .replaceAll('ö', 'o')
-        .slice(0, 200)
+        slugify: (input) =>
+          input
+            .toLowerCase()
+            .replace(/\s+/g, '-')
+            .replaceAll('ä', 'a')
+            .replaceAll('ö', 'o')
+            .slice(0, 200)
       }
     },
     {
@@ -32,7 +33,21 @@ export default {
       name: 'longDescription',
       title: 'Long Description',
       type: 'array',
-      of: [{type:'block'}]
+      sortable: 'true',
+      of: [{ type: 'block' }]
+    },
+    {
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [
+        {
+          type: 'string'
+        }
+      ],
+      options: {
+        layout: 'tags'
+      }
     }
   ]
 }
