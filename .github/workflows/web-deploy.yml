@@ -11,7 +11,8 @@ name: Deploy web to Firebase on merge
     paths:
       - 'packages/web-next/**'
 env:
-  SANITY_READ_TOKEN: { { secrets.SANITY_READ } }
+  SANITY_READ_TOKEN: ${{ secrets.SANITY_READ }}
+
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
