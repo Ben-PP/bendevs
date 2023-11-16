@@ -7,6 +7,16 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string'
+    },
+    {
+      name: 'linkedin',
+      title: 'LinkedIn',
+      type: 'url'
+    },
+    {
+      name: 'github',
+      title: 'Github',
+      type: 'url'
     }
   ],
   preview: {

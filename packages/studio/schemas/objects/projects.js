@@ -25,6 +25,17 @@ export default {
       }
     },
     {
+      name: 'github',
+      title: 'Github',
+      type: 'url'
+    },
+
+    {
+      name: 'aivailableAt',
+      title: 'Available at',
+      type: 'url'
+    },
+    {
       name: 'shortDescription',
       type: 'string',
       title: 'Short description'
