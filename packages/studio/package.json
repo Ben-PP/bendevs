@@ -18,6 +18,7 @@
     "@octokit/core": "^5.0.1",
     "@sanity/dashboard": "^3.1.5",
     "@sanity/studio-secrets": "^2.0.2",
+    "@sanity/ui": "^1.9.3",
     "@sanity/vision": "^3.19.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

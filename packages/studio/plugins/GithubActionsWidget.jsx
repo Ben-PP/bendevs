@@ -1,68 +1,24 @@
 import React from 'react'
-import { useEffect, useState } from 'react'
-import { useSecrets, SettingsView } from '@sanity/studio-secrets'
-import { Octokit } from '@octokit/core'
+import SiteDeploy from './SiteDeploy'
 //import Button from '@sanity/ui/Button'
-const namespace = 'githubActionsWidget'
-const pluginConfigKeys = [
-  {
-    key: 'apiKey',
-    title: 'Github personal access token'
-  }
-]
 
-const triggerGitHubActions = async (apiKey, type) => {
-  const octokit = new Octokit({ auth: apiKey })
-  // Implement the logic to trigger GitHub Actions here
-  switch (type) {
-    case 'bendevs.com': {
-      try {
-        const response = await octokit.request(
-          'POST /repos/ben-pp/bendevs/dispatches',
-          {
-            data: JSON.stringify({
-              event_type: 'deploy_web_from_sanity'
-            })
-          }
-        )
-
-        if (response.status === 204) {
-          console.log('GitHub Actions triggered successfully')
-        } else {
-          console.error('Failed to trigger GitHub Actions')
-        }
-      } catch (error) {
-        console.log('Error triggering GitHub Actions', error)
-      }
-    }
-  }
-}
-
+/*
+ * Generate finegrained token in github settings -> developer settings ->
+ * Personal access tokens -> fine-grained tokens. Set expiration and give
+ * read & write permission for content.
+ * (Or use classic token set to not expire)
+ */
 const GitHubActionsWidget = () => {
-  const { secrets } = useSecrets(namespace)
-  const [showSettings, setShowSettings] = useState(false)
-
   return (
-    <div>
+    <div style={{ margin: '2em' }}>
       <h2>Deploy</h2>
-      {showSettings === true ? (
-        <SettingsView
-          title={'Github token'}
-          namespace={namespace}
-          keys={pluginConfigKeys}
-          onClose={() => {
-            setShowSettings(false)
-          }}
-        />
-      ) : null}
-      <button
-        onClick={() => {
-          triggerGitHubActions(secrets.apiKey, 'bendevs.com')
-        }}
-      >
-        Trigger
-      </button>
-      <button onClick={() => setShowSettings(true)}>Change API key</button>
+      <SiteDeploy
+        user='ben-pp'
+        repo='bendevs'
+        siteName={'bendevs.com'}
+        namespace={'bendevs'}
+        eventType='deploy_web_from_sanity'
+      />
     </div>
   )
 }

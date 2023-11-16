@@ -6,32 +6,35 @@ import { schemaTypes } from './schemas'
 import deskStructure from './deskStructure'
 import GitHubActionsWidget from './plugins/GithubActionsWidget'
 
-export default defineConfig({
-  name: 'default',
-  title: 'bendevs',
-  projectId: 'c1ml1moo',
-  dataset: 'production',
+export default defineConfig([
+  {
+    name: 'bendevs',
+    title: 'bendevs',
+    projectId: 'c1ml1moo',
+    basePath: '/bendevs',
+    dataset: 'production',
 
-  plugins: [
-    deskTool({
-      structure: deskStructure
-    }),
-    dashboardTool({
-      widgets: [
-        {
-          name: 'github-actions-trigger',
-          layout: {
-            width: 'small',
-            height: 'small'
-          },
-          component: GitHubActionsWidget
-        }
-      ]
-    }),
-    visionTool()
-  ],
+    plugins: [
+      dashboardTool({
+        widgets: [
+          {
+            name: 'github-actions-trigger',
+            layout: {
+              width: 'small',
+              height: 'small'
+            },
+            component: GitHubActionsWidget
+          }
+        ]
+      }),
+      deskTool({
+        structure: deskStructure
+      }),
+      visionTool()
+    ],
 
-  schema: {
-    types: schemaTypes
+    schema: {
+      types: schemaTypes
+    }
   }
-})
+])
