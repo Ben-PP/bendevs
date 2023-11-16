@@ -3,13 +3,8 @@ import sanityClient from '../../sanityClient'
 import fetchOptions from '../../utils/fetchOption'
 import { ABOUT_PAGE_BLOCKS } from '../../queries'
 
-const getBlocks = async () => {
-  const response = await sanityClient.fetch(ABOUT_PAGE_BLOCKS, fetchOptions)
-  return response[0].items
-}
-
 const AboutView = async () => {
-  const blocks = await getBlocks()
+  const blocks = await sanityClient.fetch(ABOUT_PAGE_BLOCKS, fetchOptions)
 
   const components = {
     block: {

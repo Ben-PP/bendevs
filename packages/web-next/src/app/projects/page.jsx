@@ -1,24 +1,15 @@
-import { groq } from 'next-sanity'
 import sanityClient from '../../sanityClient'
-import ProjectCard from '../../components/ProjectCard'
+import ShowcaseCard from '../../components/ShowcaseCard'
 import fetchOptions from '../../utils/fetchOption'
-
-const query = groq`
-  *[_type == "projects"]
-`
-
-const getBlocks = async () => {
-  const response = await sanityClient.fetch(query, fetchOptions)
-  return response
-}
+import { PROJECTS_LIST_ITEMS } from '../../queries'
 
 const ProjectsView = async () => {
-  const projects = await getBlocks()
+  const projects = await sanityClient.fetch(PROJECTS_LIST_ITEMS, fetchOptions)
 
   return (
     <div>
       {projects.map((project) => {
-        return <ProjectCard key={project._id} project={project} />
+        return <ShowcaseCard key={project._id} child={project} />
       })}
     </div>
   )
