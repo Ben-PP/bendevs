@@ -1,16 +1,10 @@
-import { groq } from 'next-sanity'
 import { PortableText } from '@portabletext/react'
 import sanityClient from '../sanityClient'
 import fetchOptions from '../utils/fetchOption'
+import { FRONT_PAGE_BLOCKS } from '../queries'
 
-const query = groq`
-  *[_type == "frontpage"] {
-    ...,
-    items[] ->
-  }
-`
 const getBlocks = async () => {
-  const response = await sanityClient.fetch(query, fetchOptions)
+  const response = await sanityClient.fetch(FRONT_PAGE_BLOCKS, fetchOptions)
   return response[0].items
 }
 

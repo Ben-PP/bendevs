@@ -3,7 +3,7 @@ import Link from 'next/link'
 const Navbar = () => {
   const navItemStyle = 'm-2'
   return (
-    <div className='sticky w-full bg-green-300 flex justify-between'>
+    <div className='sticky top-0 w-full bg-green-300 flex justify-between'>
       <Link className={navItemStyle} href='/'>
         Karel Parkkola
       </Link>
