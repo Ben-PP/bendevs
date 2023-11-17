@@ -74,18 +74,18 @@ const SiteDeploy = ({
 
   return (
     <div>
-      <h3>{siteName}</h3>
-      {showSettings === true ? (
-        <SettingsView
-          title={'Github token'}
-          namespace={namespace}
-          keys={pluginConfigKeys}
-          onClose={() => {
-            setShowSettings(false)
-          }}
-        />
-      ) : null}
       <Inline space={[2]}>
+        <h3 style={{ marginRight: '1em' }}>{siteName}</h3>
+        {showSettings === true ? (
+          <SettingsView
+            title={'Github token'}
+            namespace={namespace}
+            keys={pluginConfigKeys}
+            onClose={() => {
+              setShowSettings(false)
+            }}
+          />
+        ) : null}
         <Button
           tone='positive'
           onClick={triggerGitHubActions}
