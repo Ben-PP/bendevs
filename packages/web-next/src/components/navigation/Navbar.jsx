@@ -13,7 +13,7 @@ const menuItems = [
 
 const MobileMenu = ({ onPageSelect }) => {
   return (
-    <div className='flex flex-col items-center justify-start  bg-gray-800 text-white shadow-nav h-full'>
+    <div className='flex flex-col items-center justify-start  bg-gray-800 text-white shadow-nav h-full '>
       {menuItems.map((item) => {
         return (
           <NavItem
@@ -58,7 +58,7 @@ const Navbar = ({ height }) => {
   }
 
   return (
-    <div className='fixed top-0 w-full h-full'>
+    <div className={`fixed top-0 w-full ${showMenu ? 'h-full' : ''}`}>
       <div
         className={`
       flex px-4 items-center justify-between bg-black text-white ${height}

@@ -1,4 +1,3 @@
-import { PortableText } from '@portabletext/react'
 import sanityClient from '../../sanityClient'
 import fetchOptions from '../../utils/fetchOption'
 import { ABOUT_PAGE_BLOCKS } from '../../queries'
@@ -17,7 +16,10 @@ const AboutView = async () => {
     <div className='flex justify-center flex-row flex-wrap m-4'>
       {blocks.map((block) => {
         return (
-          <div key={block._id} className='lg:w-2/5 lg:w-max-3/4 flex-grow m-8'>
+          <div
+            key={block._id}
+            className='lg:w-2/5 lg:w-max-3/4 flex-grow lg:m-8 mb-16'
+          >
             <PortableTextCard block={block} />
           </div>
         )

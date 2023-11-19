@@ -9,17 +9,13 @@ const defaultComponents = {
     default: ({ children }) => <p className=''>{children}</p>
   }
 }
-//
-const style = `
-  p-10 rounded-lg
-  text-center
-  bg-black text-white
-  shadow-lg
-`
 
 const PortableTextCard = ({ block, components }) => {
   return (
-    <div className={style}>
+    <div
+      className='p-10 rounded-lg text-center bg-black text-white
+      shadow-lg'
+    >
       <PortableText
         value={block.content}
         components={components ?? defaultComponents}

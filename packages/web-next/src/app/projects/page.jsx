@@ -7,11 +7,17 @@ const ProjectsView = async () => {
   const projects = await sanityClient.fetch(PROJECTS_LIST_ITEMS, fetchOptions)
 
   return (
-    <div>
+    <div className='flex flex-row flex-wrap justify-center m-4'>
       {projects.map((project) => {
-        return <ShowcaseCard key={project._id} child={project} />
+        return (
+          <div
+            key={project._id}
+            className='lg:w-2/5 lg:w-max-3/4 flex-grow lg:m-8 mb-16'
+          >
+            <ShowcaseCard key={project._id} child={project} />
+          </div>
+        )
       })}
-      <h3 className='text-4xl text-shadow-md shadow-white'>Test</h3>
     </div>
   )
 }
