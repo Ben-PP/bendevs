@@ -15,7 +15,6 @@ const style = `
 `
 
 const PortableTextCard = ({ block, components }) => {
-  console.log(block)
   return (
     <div className={style}>
       <PortableText

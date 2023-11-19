@@ -6,7 +6,6 @@ import PortableTextCard from '../components/cards/PortableTextCard'
 const Home = async () => {
   const blocks = await sanityClient.fetch(FRONT_PAGE_BLOCKS, fetchOptions)
 
-  console.log(blocks)
   return (
     <main className='flex justify-center m-4'>
       {blocks.map((block) => {
