@@ -1,5 +1,5 @@
 import sanityClient from '../../sanityClient'
-import ShowcaseCard from '../../components/ShowcaseCard'
+import ShowcaseCard from '../../components/cards/ShowcaseCard'
 import fetchOptions from '../../utils/fetchOption'
 import { JOBS_LIST_ITEMS } from '../../queries'
 
