@@ -8,12 +8,16 @@ export const metadata = {
 }
 
 const RootLayout = ({ children }) => {
+  const navbarHeight = 'h-16'
   return (
     <html lang='en'>
       <body>
         <div className='flex flex-col min-h-screen'>
-          <Navbar />
-          <div className='flex-1 bg-gray-900 pt-2'>{children}</div>
+          <div>
+            <Navbar height={navbarHeight} />
+          </div>
+          <div className={navbarHeight}></div>
+          <div className='flex-grow  bg-gray-900'>{children}</div>
         </div>
         <Footer />
       </body>

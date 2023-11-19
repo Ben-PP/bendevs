@@ -11,6 +11,7 @@ const ProjectsView = async () => {
       {projects.map((project) => {
         return <ShowcaseCard key={project._id} child={project} />
       })}
+      <h3 className='text-4xl text-shadow-md shadow-white'>Test</h3>
     </div>
   )
 }

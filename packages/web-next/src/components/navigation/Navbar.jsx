@@ -1,9 +1,44 @@
 'use client'
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
+import { RxHamburgerMenu } from 'react-icons/rx'
+import NavItem from './NavItem'
 
-const Navbar = () => {
-  const navItemStyle = 'm-2'
+const menuItems = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/experience', label: 'Experience' },
+  { href: '/contact', label: 'Contact' }
+]
+
+const MobileMenu = ({ onPageSelect }) => {
+  return (
+    <div className='flex flex-col items-center justify-start  bg-gray-800 text-white shadow-nav h-full'>
+      {menuItems.map((item) => {
+        return (
+          <NavItem
+            onClick={onPageSelect}
+            href={item.href}
+            key={item.href}
+            label={item.label}
+          />
+        )
+      })}
+    </div>
+  )
+}
+
+const FullMenu = () => {
+  return (
+    <div className='flex flex-row'>
+      {menuItems.map((item) => {
+        return <NavItem href={item.href} key={item.href} label={item.label} />
+      })}
+    </div>
+  )
+}
+
+const Navbar = ({ height }) => {
   const [isMobile, setIsMobile] = useState(false)
   const [showMenu, setShowMenu] = useState(false)
 
@@ -23,79 +58,27 @@ const Navbar = () => {
   }
 
   return (
-    <div className='sticky top-0 w-full'>
+    <div className='fixed top-0 w-full h-full'>
       <div
         className={`
-      flex justify-between bg-black text-white
+      flex px-4 items-center justify-between bg-black text-white ${height}
       `}
       >
-        <Link className={navItemStyle} href='/'>
-          Bendevs
-        </Link>
+        <NavItem href='/' label='Bendevs'></NavItem>
         {isMobile ? (
-          <div className='m-2 flex flex-col items-end'>
+          <div className=' flex flex-col items-end'>
             <button
               className='text-white focus:outline-none'
               onClick={() => setShowMenu(!showMenu)}
             >
-              {/* Mobile menu icon */}
-              <svg
-                className='w-6 h-6'
-                fill='none'
-                stroke='currentColor'
-                viewBox='0 0 24 24'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  strokeWidth='2'
-                  d='M4 6h16M4 12h16m-7 6h7'
-                ></path>
-              </svg>
+              <RxHamburgerMenu size={50} />
             </button>
           </div>
         ) : (
-          <div className='flex justify-end'>
-            <Link className={navItemStyle} href='/about'>
-              About
-            </Link>
-            <Link className={navItemStyle} href='/projects'>
-              Projects
-            </Link>
-            <Link className={navItemStyle} href='/experience'>
-              Experience
-            </Link>
-            <Link className={navItemStyle} href='/contact'>
-              Contact
-            </Link>
-          </div>
+          <FullMenu />
         )}
       </div>
-      {showMenu ? (
-        <div className='flex flex-col items-center bg-gray-800 text-white shadow-nav '>
-          <Link onClick={onPageSelect} className={navItemStyle} href='/about'>
-            About
-          </Link>
-          <Link
-            onClick={onPageSelect}
-            className={navItemStyle}
-            href='/projects'
-          >
-            Projects
-          </Link>
-          <Link
-            onClick={onPageSelect}
-            className={navItemStyle}
-            href='/experience'
-          >
-            Experience
-          </Link>
-          <Link onClick={onPageSelect} className={navItemStyle} href='/contact'>
-            Contact
-          </Link>
-        </div>
-      ) : null}
+      {showMenu ? <MobileMenu onPageSelect={onPageSelect} /> : null}
     </div>
   )
 }
