@@ -6,7 +6,7 @@ const defaultComponents = {
     default: ({ children }) => <p>{children}</p>
   }
 }
-
+//
 const style = `
   lg:w-3/4 lg:mx-0 w-full p-4 rounded-lg
   text-center
