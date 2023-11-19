@@ -13,7 +13,7 @@ const RootLayout = ({ children }) => {
       <body>
         <div className='flex flex-col min-h-screen'>
           <Navbar />
-          <div className='flex-1 bg-gray-900'>{children}</div>
+          <div className='flex-1 bg-gray-900 pt-2'>{children}</div>
         </div>
         <Footer />
       </body>
