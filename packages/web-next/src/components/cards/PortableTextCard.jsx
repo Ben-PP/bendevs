@@ -2,13 +2,16 @@ import { PortableText } from '@portabletext/react'
 
 const defaultComponents = {
   block: {
-    h1: ({ children }) => <h1 className='text-3xl'>{children}</h1>,
-    default: ({ children }) => <p>{children}</p>
+    h1: ({ children }) => <h1 className='text-5xl mb-10'>{children}</h1>,
+    normal: ({ children }) => (
+      <p className='text-2xl text-gray-500'>{children}</p>
+    ),
+    default: ({ children }) => <p className=''>{children}</p>
   }
 }
 //
 const style = `
-  lg:w-3/4 lg:mx-0 w-full p-4 rounded-lg
+  p-10 rounded-lg
   text-center
   bg-black text-white
   shadow-lg

@@ -3,7 +3,7 @@
  * @param {Object} child Child with name, shortDescription and tags fields
  * @returns {ReactElement} Component showcasing the child
  */
-const ShowcaseCard = ({ child }) => {
+const ShowcaseCard = ({ icon, child }) => {
   return (
     <div>
       <h2>{child.name}</h2>

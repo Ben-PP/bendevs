@@ -2,6 +2,7 @@ import { PortableText } from '@portabletext/react'
 import sanityClient from '../../sanityClient'
 import fetchOptions from '../../utils/fetchOption'
 import { ABOUT_PAGE_BLOCKS } from '../../queries'
+import PortableTextCard from '../../components/cards/PortableTextCard'
 
 const AboutView = async () => {
   const blocks = await sanityClient.fetch(ABOUT_PAGE_BLOCKS, fetchOptions)
@@ -13,15 +14,15 @@ const AboutView = async () => {
     }
   }
   return (
-    <main className='text-center'>
+    <div className='flex justify-center flex-row flex-wrap m-4'>
       {blocks.map((block) => {
         return (
-          <div key={block._id} className='bg-gray-200'>
-            <PortableText value={block.content} components={components} />
+          <div key={block._id} className='lg:w-2/5 lg:w-max-3/4 flex-grow m-8'>
+            <PortableTextCard block={block} />
           </div>
         )
       })}
-    </main>
+    </div>
   )
 }
 
