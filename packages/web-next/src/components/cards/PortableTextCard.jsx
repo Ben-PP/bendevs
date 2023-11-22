@@ -1,10 +1,13 @@
 import { PortableText } from '@portabletext/react'
+import CardBase from './CardBase'
 
 const defaultComponents = {
   block: {
-    h1: ({ children }) => <h1 className='text-5xl mb-10'>{children}</h1>,
+    h1: ({ children }) => (
+      <h1 className='text-5xl mb-10 font-bold text-indigo-500'>{children}</h1>
+    ),
     normal: ({ children }) => (
-      <p className='text-2xl text-gray-500'>{children}</p>
+      <p className='text-2xl text-gray-300'>{children}</p>
     ),
     default: ({ children }) => <p className=''>{children}</p>
   }
@@ -12,15 +15,12 @@ const defaultComponents = {
 
 const PortableTextCard = ({ block, components }) => {
   return (
-    <div
-      className='p-10 rounded-lg text-center bg-black text-white
-      shadow-lg'
-    >
+    <CardBase>
       <PortableText
         value={block.content}
         components={components ?? defaultComponents}
       />
-    </div>
+    </CardBase>
   )
 }
 

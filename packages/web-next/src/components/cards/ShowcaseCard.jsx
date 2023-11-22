@@ -1,4 +1,5 @@
 import { RxArrowRight } from 'react-icons/rx'
+import CardBase from './CardBase'
 import Tag from '../Tag'
 
 const defaultComponents = {
@@ -18,10 +19,7 @@ const defaultComponents = {
  */
 const ShowcaseCard = ({ icon, child }) => {
   return (
-    <div
-      className='p-10 rounded-lg text-center bg-black text-white
-    shadow-lg'
-    >
+    <CardBase>
       <h2 className='text-5xl mb-10 text-indigo-500 font-bold'>{child.name}</h2>
       <p className='text-2xl text-gray-300'>{child.shortDescription}</p>
       <div className='flex flex-col lg:flex-row items-center justify-between my-8'>
@@ -48,7 +46,7 @@ const ShowcaseCard = ({ icon, child }) => {
           </button>
         </div>
       </div>
-    </div>
+    </CardBase>
   )
 }
 

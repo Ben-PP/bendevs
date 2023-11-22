@@ -1,3 +1,4 @@
+import CardBase from './CardBase'
 import Tag from '../Tag'
 
 const JobCard = ({ job }) => {
@@ -10,7 +11,7 @@ const JobCard = ({ job }) => {
     startDate.getMonth() + 1
   }/${startDate.getFullYear()}`
   return (
-    <div className='p-10 rounded-lg text-center bg-black text-white shadow-lg'>
+    <CardBase>
       <h2 className='text-5xl mb-8 text-indigo-200 font-bold'>
         {job.jobTitle}
       </h2>
@@ -31,7 +32,7 @@ const JobCard = ({ job }) => {
           })}
         </ul>
       </div>
-    </div>
+    </CardBase>
   )
 }
 
