@@ -1,17 +1,18 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import NavItem from './NavItem'
 
 const menuItems = [
-  { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/projects', label: 'Projects' },
   { href: '/experience', label: 'Experience' },
   { href: '/contact', label: 'Contact' }
 ]
+const selectedStyle = 'text-indigo-500'
 
-const MobileMenu = ({ onPageSelect }) => {
+const MobileMenu = ({ onPageSelect, pathname }) => {
   return (
     <div className='flex flex-col items-center justify-start  bg-gray-800 text-white shadow-nav h-full '>
       {menuItems.map((item) => {
@@ -21,6 +22,7 @@ const MobileMenu = ({ onPageSelect }) => {
             href={item.href}
             key={item.href}
             label={item.label}
+            className={pathname === `${item.href}/` ? selectedStyle : null}
           />
         )
       })}
@@ -28,30 +30,26 @@ const MobileMenu = ({ onPageSelect }) => {
   )
 }
 
-const FullMenu = () => {
+const FullMenu = ({ pathname }) => {
   return (
     <div className='flex flex-row'>
       {menuItems.map((item) => {
-        return <NavItem href={item.href} key={item.href} label={item.label} />
+        return (
+          <NavItem
+            href={item.href}
+            key={item.href}
+            label={item.label}
+            className={pathname === `${item.href}/` ? selectedStyle : null}
+          />
+        )
       })}
     </div>
   )
 }
 
 const Navbar = ({ height }) => {
-  const [isMobile, setIsMobile] = useState(false)
   const [showMenu, setShowMenu] = useState(false)
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 1024)
-    }
-    handleResize()
-    window.addEventListener('resize', handleResize)
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
+  const pathname = usePathname()
 
   const onPageSelect = () => {
     setShowMenu(false)
@@ -64,21 +62,27 @@ const Navbar = ({ height }) => {
       flex px-4 items-center justify-between bg-black text-white ${height}
       `}
       >
-        <NavItem href='/' label='Bendevs'></NavItem>
-        {isMobile ? (
-          <div className=' flex flex-col items-end'>
-            <button
-              className='text-white focus:outline-none'
-              onClick={() => setShowMenu(!showMenu)}
-            >
-              <RxHamburgerMenu size={50} />
-            </button>
-          </div>
-        ) : (
-          <FullMenu />
-        )}
+        <NavItem
+          href='/'
+          label='Bendevs'
+          className={pathname === '/' ? selectedStyle : null}
+        ></NavItem>
+
+        <div className={'lg:hidden flex flex-col items-end'}>
+          <button
+            className='text-white focus:outline-none'
+            onClick={() => setShowMenu(!showMenu)}
+          >
+            <RxHamburgerMenu size={50} />
+          </button>
+        </div>
+        <div className='hidden lg:block'>
+          <FullMenu pathname={pathname} />
+        </div>
       </div>
-      {showMenu ? <MobileMenu onPageSelect={onPageSelect} /> : null}
+      {showMenu ? (
+        <MobileMenu onPageSelect={onPageSelect} pathname={pathname} />
+      ) : null}
     </div>
   )
 }

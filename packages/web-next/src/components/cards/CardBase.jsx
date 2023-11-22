@@ -1,7 +1,7 @@
-const CardBase = ({ children, style, ...props }) => {
+const CardBase = ({ children, className, ...props }) => {
   return (
     <div
-      className={`p-10 rounded-lg text-center bg-black text-white shadow-card ${style}`}
+      className={`${className} px-5 py-8 lg:p-10 rounded-lg bg-black text-white shadow-card`}
       {...props}
     >
       {children}
