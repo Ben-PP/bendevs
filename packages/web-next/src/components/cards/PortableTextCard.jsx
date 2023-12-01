@@ -13,9 +13,9 @@ const defaultComponents = {
   }
 }
 
-const PortableTextCard = ({ block, components }) => {
+const PortableTextCard = ({ block, components, className }) => {
   return (
-    <CardBase>
+    <CardBase className={className}>
       <PortableText
         value={block.content}
         components={components ?? defaultComponents}

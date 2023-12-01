@@ -56,10 +56,14 @@ const Navbar = ({ height }) => {
   }
 
   return (
-    <div className={`fixed top-0 w-full ${showMenu ? 'h-full' : ''}`}>
+    <div
+      className={`border-b-2 border-black fixed top-0 w-full ${
+        showMenu ? 'h-full' : ''
+      }`}
+    >
       <div
         className={`
-      flex px-4 items-center justify-between bg-black text-white ${height}
+      flex px-4 items-center justify-between bg-white text-black ${height}
       `}
       >
         <NavItem
@@ -73,7 +77,7 @@ const Navbar = ({ height }) => {
             className='text-white focus:outline-none'
             onClick={() => setShowMenu(!showMenu)}
           >
-            <RxHamburgerMenu size={50} />
+            <RxHamburgerMenu className='text-black' size={50} />
           </button>
         </div>
         <div className='hidden lg:block'>
