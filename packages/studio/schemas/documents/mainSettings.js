@@ -4,9 +4,35 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'title',
-      title: 'Title',
+      name: 'name',
+      title: 'Name',
       type: 'string'
+    },
+    {
+      name: 'profileImage',
+      title: 'Profile Image',
+      type: 'image',
+      options: {
+        hotspot: true
+      }
+    },
+    {
+      name: 'bio',
+      title: 'Bio',
+      type: 'text'
+    },
+    {
+      name: 'skills',
+      title: 'Skills',
+      type: 'array',
+      of: [
+        {
+          type: 'string'
+        }
+      ],
+      options: {
+        layout: 'tags'
+      }
     },
     {
       name: 'linkedin',
