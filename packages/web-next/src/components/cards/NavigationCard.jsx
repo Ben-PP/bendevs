@@ -7,7 +7,7 @@ const NavigationCard = ({ title, description, className, href }) => {
       href={href}
       className={`${className} flex flex-col justify-end w-full h-full hover:cursor-pointer hover:shadow-hoverfp
       text-center text-indigo-500 hover:text-indigo-700
-      rounded-lg bg-black px-5 py-8 lg:p-10`}
+      rounded-lg bg-black bg-opacity-80 hover:bg-opacity-90 px-5 py-8 lg:p-10`}
     >
       <div className='flex flex-col h-full'>
         <p className='text-xl text-gray-300'>{description}</p>

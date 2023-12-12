@@ -20,3 +20,15 @@ export const JOBS_LIST_ITEMS = groq`
     items[] ->
   }.items
 `
+export const PROFILE_IMAGE_URL = groq`
+  *[_type == "mainSettings"][0].profileImage.asset -> url
+`
+export const PROFILE = groq`
+  *[_type == "mainSettings"][0] {
+    name,
+    bio,
+    skills,
+    linkedin,
+    github
+  }
+`
