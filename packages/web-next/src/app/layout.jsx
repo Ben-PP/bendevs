@@ -16,7 +16,7 @@ const RootLayout = ({ children }) => {
           <Navbar height={navbarHeight} />
 
           <div className={navbarHeight}></div>
-          <div className={`bg-white flex-grow flex flex-col`}>{children}</div>
+          <div className={` flex-grow flex flex-col w-screen`}>{children}</div>
         </div>
         <Footer />
       </body>
