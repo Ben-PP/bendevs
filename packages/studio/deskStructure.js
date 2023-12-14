@@ -21,6 +21,11 @@ export default (S) =>
       S.listItem()
         .title('Jobs list')
         .child(S.editor().schemaType('jobsList').documentId('jobsList')),
+      S.listItem()
+        .title('Social link list')
+        .child(
+          S.editor().schemaType('socialLinkList').documentId('socialLinkList')
+        ),
       S.divider(),
       // Rest of the items
       ...S.documentTypeListItems().filter(
@@ -30,7 +35,8 @@ export default (S) =>
             'mainSettings',
             'jobsList',
             'aboutpage',
-            'projectsList'
+            'projectsList',
+            'socialLinkList'
           ].includes(listItem.getId())
       )
     ])

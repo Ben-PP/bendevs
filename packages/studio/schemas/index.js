@@ -6,6 +6,8 @@ import projects from './objects/projects'
 import projectsList from './documents/projectsList'
 import jobsList from './documents/jobsList'
 import workExperiences from './objects/workExperiences'
+import socialLinks from './objects/socialLinks'
+import socialLinkList from './documents/socialLinkList'
 
 export const schemaTypes = [
   jobsList,
@@ -15,5 +17,7 @@ export const schemaTypes = [
   aboutpage,
   frontpage,
   contentBlocks,
-  settings
+  settings,
+  socialLinks,
+  socialLinkList
 ]
