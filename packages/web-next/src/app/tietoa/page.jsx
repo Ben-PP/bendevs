@@ -28,14 +28,14 @@ const AboutView = async () => {
           />
         </div>
         <div className='text-4xl text-center my-8'>{profile.name}</div>
-        <div className='text-xl text-left text-white'>{profile.bio}</div>
+        <div className='text-xl text-left text-primary'>{profile.bio}</div>
         <h3 className='my-5 text-3xl text-center'>Osaaminen</h3>
         <TagList tags={profile.skills} />
       </SidePanel>
       <ContentPanel backgroundImage='/abstract8.png'>
         {blocks.map((block) => {
           return (
-            <div key={block._id} className='p-5 lg:p-20'>
+            <div key={block._id} className='p-5 lg:px-20 lg:py-10'>
               <PortableTextCard block={block} />
             </div>
           )

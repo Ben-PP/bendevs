@@ -1,5 +1,9 @@
 const FooterColumnItem = ({ children }) => {
-  return <div className='text-white hover:text-indigo-400 my-2'>{children}</div>
+  return (
+    <div className='text-primary-dark hover:text-secondary my-2'>
+      {children}
+    </div>
+  )
 }
 
 export default FooterColumnItem

@@ -10,11 +10,11 @@ const menuItems = [
   { href: '/kokemus', label: 'Työkokemus' },
   { href: '/yhteys', label: 'Ota yhteyttä' }
 ]
-const selectedStyle = 'text-indigo-500'
+const selectedStyle = 'text-secondary'
 
 const MobileMenu = ({ onPageSelect, pathname }) => {
   return (
-    <div className='flex flex-col items-center justify-start  bg-gray-800 text-white shadow-nav h-full '>
+    <div className='flex flex-col items-center justify-start  bg-secondary shadow-nav h-full '>
       {menuItems.map((item) => {
         return (
           <NavItem
@@ -32,7 +32,7 @@ const MobileMenu = ({ onPageSelect, pathname }) => {
 
 const FullMenu = ({ pathname }) => {
   return (
-    <div className='flex flex-row'>
+    <div className='flex flex-row '>
       {menuItems.map((item) => {
         return (
           <NavItem
@@ -57,13 +57,11 @@ const Navbar = ({ height }) => {
 
   return (
     <div
-      className={`border-b-2 border-black fixed top-0 w-full ${
-        showMenu ? 'h-full' : ''
-      }`}
+      className={`bg-tertiary fixed top-0 w-full ${showMenu ? 'h-full' : ''}`}
     >
       <div
         className={`
-      flex px-4 items-center justify-between bg-white text-black ${height}
+      flex px-4 items-center justify-between  text-primary-dark ${height}
       `}
       >
         <NavItem
@@ -74,10 +72,10 @@ const Navbar = ({ height }) => {
 
         <div className={'lg:hidden flex flex-col items-end'}>
           <button
-            className='text-white focus:outline-none'
+            className='text-primary-dark focus:outline-none'
             onClick={() => setShowMenu(!showMenu)}
           >
-            <RxHamburgerMenu className='text-black' size={50} />
+            <RxHamburgerMenu size={50} />
           </button>
         </div>
         <div className='hidden lg:block'>

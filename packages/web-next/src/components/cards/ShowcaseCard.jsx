@@ -20,8 +20,8 @@ const defaultComponents = {
 const ShowcaseCard = ({ icon, child }) => {
   return (
     <CardBase>
-      <h2 className='text-5xl mb-10 text-indigo-500 font-bold'>{child.name}</h2>
-      <p className='text-2xl text-gray-300'>{child.shortDescription}</p>
+      <h2 className='text-5xl mb-10 text-secondary font-bold'>{child.name}</h2>
+      <p className='text-2xl text-primary-dark'>{child.shortDescription}</p>
       <div className='flex flex-col lg:flex-row items-center justify-between mt-8'>
         <div className='flex-col overflow-y-auto'>
           <ul className='flex flex-grow-1 justify-center flex-wrap space-x-3'>
@@ -37,11 +37,11 @@ const ShowcaseCard = ({ icon, child }) => {
         <div className='w-full lg:w-auto lg:mt-0 mt-8'>
           <button
             className='flex w-full justify-center items-center text-3xl
-            text-gray-300 border-gray-300
-            hover:text-indigo-700 hover:border-indigo-700 border-2
+            text-primary-dark border-primary-dark
+            hover:text-secondary-dark hover:border-secondary-dark border-2
             rounded-2xl px-4'
           >
-            View
+            Tutustu
             <RxArrowRight size={80} />
           </button>
         </div>

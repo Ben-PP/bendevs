@@ -12,10 +12,12 @@ const JobCard = ({ job }) => {
   }/${startDate.getFullYear()}`
   return (
     <CardBase>
-      <h2 className='text-5xl mb-8 text-gray-300 font-bold'>{job.jobTitle}</h2>
-      <h3 className='text-3xl  text-indigo-500 mb-5'>{`${startDateString} - ${endDateString}`}</h3>
-      <h3 className='text-3xl font-bold text-indigo-500 mb-5'>{job.company}</h3>
-      <p className='text-2xl text-gray-300'>{job.shortDescription}</p>
+      <h2 className='text-5xl mb-8 text-primary-dark font-bold'>
+        {job.jobTitle}
+      </h2>
+      <h3 className='text-3xl  text-secondary mb-5'>{`${startDateString} - ${endDateString}`}</h3>
+      <h3 className='text-3xl font-bold text-secondary mb-5'>{job.company}</h3>
+      <p className='text-2xl text-primary-dark'>{job.shortDescription}</p>
       <div
         className='flex flex-col items-start justify-between
       my-8 overflow-y-auto'

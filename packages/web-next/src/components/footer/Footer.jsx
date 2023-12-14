@@ -12,8 +12,8 @@ const Footer = async () => {
   const socialLinks = await sanityClient.fetch(SOCIAL_LINKS, fetchOptions)
 
   return (
-    <footer className='bg-black p-5'>
-      <div className='flex flex-col items-center text-white'>
+    <footer className='bg-tertiary p-5'>
+      <div className='flex flex-col items-center text-primary-dark'>
         <div className='flex flex-row p-5'>
           <FooterColumn title='Bendevs'>
             <FooterColumnItem>
@@ -45,7 +45,7 @@ const Footer = async () => {
             })}
           </FooterColumn>
         </div>
-        <h4 className='text-gray-700'>
+        <h4 className='text-accent-light'>
           &copy; {currentYear} bendevs.com | Karel Parkkola
         </h4>
       </div>
