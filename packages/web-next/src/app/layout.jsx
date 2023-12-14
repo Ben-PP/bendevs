@@ -1,6 +1,6 @@
 import './globals.css'
 import Navbar from '../components/navigation/Navbar'
-import Footer from '../components/Footer'
+import Footer from '../components/footer/Footer'
 
 export const metadata = {
   title: 'Bendevs',

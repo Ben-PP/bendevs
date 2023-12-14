@@ -5,10 +5,10 @@ import { RxHamburgerMenu } from 'react-icons/rx'
 import NavItem from './NavItem'
 
 const menuItems = [
-  { href: '/about', label: 'About' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/experience', label: 'Experience' },
-  { href: '/contact', label: 'Contact' }
+  { href: '/tietoa', label: 'Tietoa' },
+  { href: '/projektit', label: 'Projektit' },
+  { href: '/kokemus', label: 'Työkokemus' },
+  { href: '/yhteys', label: 'Ota yhteyttä' }
 ]
 const selectedStyle = 'text-indigo-500'
 

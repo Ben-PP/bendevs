@@ -25,24 +25,24 @@ const Home = async () => {
           <NavigationCard
             title={'Tutustu'}
             description={'Tule tutustumaan minuun ja osaamiseeni tarkemmin!'}
-            href={'/about'}
+            href={'/tietoa'}
           />
           <NavigationCard
             title={'Projektit'}
             description={
               'Selaa mielenkiintoisia projekteja, joita olen tehnyt!'
             }
-            href={'/projects'}
+            href={'/projektit'}
           />
           <NavigationCard
             title={'Työkokemus'}
             description={'Katso mihin kaikkeen ammattitaitoani on hyödynnetty!'}
-            href={'/experience'}
+            href={'/kokemus'}
           />
           <NavigationCard
-            title={'Yhteystiedot'}
+            title={'Ota yhteyttä'}
             description={'Kiinnostuitko? Ota yhteyttä jo tänään!'}
-            href={'/contact'}
+            href={'/yhteys'}
           />
         </div>
       </div>

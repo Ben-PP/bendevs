@@ -20,6 +20,11 @@ export const JOBS_LIST_ITEMS = groq`
     items[] ->
   }.items
 `
+export const SOCIAL_LINKS = groq`
+  *[_type == "socialLinkList"][0] {
+    items[] ->
+  }.items
+`
 export const PROFILE_IMAGE_URL = groq`
   *[_type == "mainSettings"][0].profileImage.asset -> url
 `
