@@ -20,32 +20,36 @@ const Home = async () => {
         </div>
       </div>
 
-      <div
-        className='
-          grid flex-grow justify-center grid-cols-1 lg:grid-cols-2
-          xl:grid-cols-4 gap-5 mb-20 mx-20 my-20 py-10
+      <div className='flex-grow w-full flex items-center justify-center'>
+        <div
+          className='
+        grid w-full h-full justify-center grid-cols-1 lg:grid-cols-2
+        xl:grid-cols-4 gap-5 px-5 lg:px-20 py-10 lg:py-20
         '
-      >
-        <NavigationCard
-          title={'Tutustu'}
-          description={'Tule tutustumaan minuun ja osaamiseeni tarkemmin!'}
-          href={'/tietoa'}
-        />
-        <NavigationCard
-          title={'Projektit'}
-          description={'Selaa mielenkiintoisia projekteja, joita olen tehnyt!'}
-          href={'/projektit'}
-        />
-        <NavigationCard
-          title={'Työkokemus'}
-          description={'Katso mihin kaikkeen ammattitaitoani on hyödynnetty!'}
-          href={'/kokemus'}
-        />
-        <NavigationCard
-          title={'Ota yhteyttä'}
-          description={'Kiinnostuitko? Ota yhteyttä jo tänään!'}
-          href={'/yhteys'}
-        />
+        >
+          <NavigationCard
+            title={'Tutustu'}
+            description={'Tule tutustumaan minuun ja osaamiseeni tarkemmin!'}
+            href={'/tietoa'}
+          />
+          <NavigationCard
+            title={'Projektit'}
+            description={
+              'Selaa mielenkiintoisia projekteja, joita olen tehnyt!'
+            }
+            href={'/projektit'}
+          />
+          <NavigationCard
+            title={'Työkokemus'}
+            description={'Katso mihin kaikkeen ammattitaitoani on hyödynnetty!'}
+            href={'/kokemus'}
+          />
+          <NavigationCard
+            title={'Ota yhteyttä'}
+            description={'Kiinnostuitko? Ota yhteyttä jo tänään!'}
+            href={'/yhteys'}
+          />
+        </div>
       </div>
     </main>
   )

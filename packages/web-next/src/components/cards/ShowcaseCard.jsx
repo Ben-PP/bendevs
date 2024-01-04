@@ -1,4 +1,5 @@
 import { RxArrowRight } from 'react-icons/rx'
+import Link from 'next/link'
 import CardBase from './CardBase'
 import Tag from '../Tag'
 
@@ -35,7 +36,8 @@ const ShowcaseCard = ({ icon, child }) => {
           </ul>
         </div>
         <div className='w-full lg:w-auto lg:mt-0 mt-8'>
-          <button
+          <Link
+            href={`/projektit/${child.slug.current}`}
             className='flex w-full justify-center items-center text-3xl
             text-primary-dark border-primary-dark
             hover:text-secondary-dark hover:border-secondary-dark border-2
@@ -43,7 +45,7 @@ const ShowcaseCard = ({ icon, child }) => {
           >
             Tutustu
             <RxArrowRight size={80} />
-          </button>
+          </Link>
         </div>
       </div>
     </CardBase>

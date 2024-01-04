@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { RxArrowRight } from 'react-icons/rx'
 
 const NavigationCard = ({ title, description, className, href }) => {
   return (
@@ -12,9 +11,8 @@ const NavigationCard = ({ title, description, className, href }) => {
       <div className='flex flex-col h-full'>
         <p className='text-xl text-primary-dark'>{description}</p>
       </div>
-      <div className='flex flex-col flex-grow justify-between items-center h-full '>
+      <div className='flex flex-row flex-grow justify-center items-center h-full '>
         <h1 className='text-4xl mt-8'>{title}</h1>
-        <RxArrowRight className='w-full mt-8' size={80} />
       </div>
     </Link>
   )

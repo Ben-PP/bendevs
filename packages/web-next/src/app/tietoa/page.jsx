@@ -24,7 +24,7 @@ const AboutView = async () => {
             width={500}
             height={500}
             src={profileImageUrl}
-            alt='profile image'
+            alt='Image of Karel Parkkola'
           />
         </div>
         <div className='text-4xl text-center my-8'>{profile.name}</div>
