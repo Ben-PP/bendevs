@@ -1,17 +1,7 @@
 import { RxArrowRight } from 'react-icons/rx'
-import Link from 'next/link'
+import PortableText from '../PortableText'
 import CardBase from './CardBase'
 import Tag from '../Tag'
-
-const defaultComponents = {
-  block: {
-    h1: ({ children }) => <h1 className='text-5xl mb-10'>{children}</h1>,
-    normal: ({ children }) => (
-      <p className='text-2xl text-gray-500'>{children}</p>
-    ),
-    default: ({ children }) => <p className=''>{children}</p>
-  }
-}
 
 /**
  * Showcase something with a title, description and tags!
@@ -22,7 +12,8 @@ const ShowcaseCard = ({ icon, child }) => {
   return (
     <CardBase>
       <h2 className='text-5xl mb-10 text-secondary font-bold'>{child.name}</h2>
-      <p className='text-2xl text-primary-dark'>{child.shortDescription}</p>
+      {/*<p className='text-2xl text-primary-dark'>{child.description}</p>*/}
+      <PortableText content={child.description} />
       <div className='flex flex-col lg:flex-row items-center justify-between mt-8'>
         <div className='flex-col overflow-y-auto'>
           <ul className='flex flex-grow-1 justify-center flex-wrap space-x-3'>
@@ -35,18 +26,34 @@ const ShowcaseCard = ({ icon, child }) => {
             })}
           </ul>
         </div>
-        <div className='w-full lg:w-auto lg:mt-0 mt-8'>
-          <Link
-            href={`/projektit/${child.slug.current}`}
-            className='flex w-full justify-center items-center text-3xl
-            text-primary-dark border-primary-dark
-            hover:text-secondary-dark hover:border-secondary-dark border-2
-            rounded-2xl px-4'
+      </div>
+      <div className='flex flex-col lg:flex-row justify-evenly mt-8'>
+        {child.github && (
+          <a
+            href={child.github}
+            target='blank'
+            className='
+              flex justify-center items-center border-2 rounded-lg px-5 py-2
+              hover:text-secondary hover:border-secondary
+            '
           >
-            Tutustu
-            <RxArrowRight size={80} />
-          </Link>
-        </div>
+            <p className='text-xl'>Github</p>
+            <RxArrowRight className='ml-2' size={40} />
+          </a>
+        )}
+        {child.availableAt && (
+          <a
+            href={child.availableAt}
+            target='blank'
+            className='
+              flex justify-center items-center border-2 rounded-lg px-5 py-2
+              mt-5 lg:mt-0 hover:text-secondary hover:border-secondary
+            '
+          >
+            <p className='text-xl'>Kokeile</p>
+            <RxArrowRight className='ml-2' size={40} />
+          </a>
+        )}
       </div>
     </CardBase>
   )

@@ -15,11 +15,6 @@ export const PROJECTS_LIST_ITEMS = groq`
     items[] ->
   }.items
 `
-export const PROJECT_FROM_SLUG = groq`
-  *[_type == "projectsList"][0] {
-    items[] ->
-  }.items[slug.current == "easymoney"][0]
-`
 export const JOBS_LIST_ITEMS = groq`
   *[_type == "jobsList"][0] {
     items[] ->

@@ -1,6 +1,6 @@
 const fetchOptions = {
   next: {
-    //revalidate: 1
+    revalidate: 10
   }
 }
 

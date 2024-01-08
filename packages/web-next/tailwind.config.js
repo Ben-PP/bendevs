@@ -32,6 +32,7 @@ module.exports = {
       },
       borderColor: {
         'primary-dark': '#D4D4D8',
+        secondary: '#6366F1',
         'secondary-dark': '#4338CA'
       }
     }

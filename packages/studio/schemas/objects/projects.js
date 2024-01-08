@@ -31,18 +31,13 @@ export default {
     },
 
     {
-      name: 'aivailableAt',
+      name: 'availableAt',
       title: 'Available at',
       type: 'url'
     },
     {
-      name: 'shortDescription',
-      type: 'string',
-      title: 'Short description'
-    },
-    {
-      name: 'longDescription',
-      title: 'Long Description',
+      name: 'description',
+      title: 'Description',
       type: 'array',
       sortable: 'true',
       of: [{ type: 'block' }]
