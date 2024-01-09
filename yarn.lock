@@ -2542,9 +2542,9 @@
     "@sanity/ui" "^1.0.0"
 
 "@sanity/telemetry@^0.7.5":
-  version "0.7.5"
-  resolved "https://registry.yarnpkg.com/@sanity/telemetry/-/telemetry-0.7.5.tgz#e9c39d35a55892ec230654f33d008f75aa2a398a"
-  integrity sha512-lY1Lmt2zl9YIIXO2bAFGXR542ovpn8jmLmIos1mQU4D+ItbZsPBxt9g72bJCsUZ7yodMf2K4t4Tp7BTv0as9sg==
+  version "0.7.6"
+  resolved "https://registry.yarnpkg.com/@sanity/telemetry/-/telemetry-0.7.6.tgz#66f0e0b7b3f43235ce1d2bc378105cc6b5099979"
+  integrity sha512-ONv0kRefL2zsyv84zDE/tfBjOZ1W0d5eBQHpx8+TN5OPKtESZaL68VjZV1OrumVoEIfaSOHUCB6RsnC5t0H6Kw==
   dependencies:
     lodash "^4.17.21"
     react "^18.2.0"
