@@ -10,6 +10,7 @@ name: Deploy web to Firebase on merge
       - main
     paths:
       - 'packages/web-next/**'
+      - '!packages/web-next/functions/**'
 env:
   SANITY_READ_TOKEN: ${{ secrets.SANITY_READ }}
 
