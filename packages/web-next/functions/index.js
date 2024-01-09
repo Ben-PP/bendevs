@@ -16,7 +16,7 @@ exports.helloWorld = onCall(
     region: 'europe-north1'
   },
   (request) => {
-    info('Hello logs!', { structuredData: true })
+    info('Hello logs v2!', { structuredData: true })
     return { hello: 'world' }
   }
 )
