@@ -12,7 +12,7 @@ const ContactView = () => {
   }
   return (
     <div>
-      <button onClick={onClick}>test</button>
+      <button onClick={onClick}>test hello function</button>
     </div>
   )
 }
