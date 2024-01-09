@@ -13,7 +13,8 @@ const { info } = require('firebase-functions/logger')
 exports.helloWorld = onCall(
   {
     enforceAppCheck: true,
-    region: 'europe-north1'
+    region: 'europe-north1',
+    maxInstances: 1
   },
   (request) => {
     info('Hello logs v6!', { structuredData: true })
