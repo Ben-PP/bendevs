@@ -19,6 +19,8 @@ jobs:
         run: cd packages/web-next && yarn
       - name: npm install
         run: cd packages/web-next/functions && npm install
+      - name: back to project folder
+        run: cd ..
       - name: Deploy
 
         uses: w9jds/firebase-action@master
