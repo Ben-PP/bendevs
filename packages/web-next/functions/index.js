@@ -10,7 +10,7 @@
 const { onCall } = require('firebase-functions/v2/https')
 const { info } = require('firebase-functions/logger')
 
-exports.helloWorld = onCall(
+exports.helloworld = onCall(
   {
     enforceAppCheck: true,
     region: 'europe-north1',

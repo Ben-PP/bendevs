@@ -1,5 +1,6 @@
 import 'dotenv/config'
 import { createClient } from 'next-sanity'
+
 const sanityClient = createClient({
   projectId: 'c1ml1moo',
   dataset: 'production',
