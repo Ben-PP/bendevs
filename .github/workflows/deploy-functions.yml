@@ -1,0 +1,22 @@
+name: Deploy functions
+
+on:
+  push:
+    paths:
+      - 'packages/web-next/functions/**'
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Deploy
+        uses: w9jds/firebase-action@master
+        env:
+          GCP_SA_KEY: ${{ secrets.FUNCTIONS_GCP_SA_KEY }}
+        with:
+          args: deploy --only functions
