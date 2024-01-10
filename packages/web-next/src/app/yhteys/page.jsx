@@ -42,6 +42,7 @@ const ContactView = () => {
   const { reset: contentReset, ...content } = useField('text')
   const { reset: contactInfoReset, ...contactInfo } = useField('text')
   const [formError, setFormError] = useState()
+  const [wantsContact, setWantsContact] = useState(false)
 
   useEffect(() => {
     if (process.env.NODE_ENV !== 'production') {
@@ -72,6 +73,7 @@ const ContactView = () => {
       setFormError('Viesti ei voi olla tyhjä')
       return
     }
+    // TODO: Implement
     setFormError('Ei implementoitu vielä')
     return
 
@@ -89,16 +91,27 @@ const ContactView = () => {
   }
 
   return (
-    <div className='flex flex-col flex-grow justify-center items-center'>
+    <div className='flex flex-col flex-grow justify-start items-center'>
       <form
-        className='text-center border-2 rounded-xl px-20 py-10 w-1/2'
+        className='text-center border-2 rounded-xl px-20 py-10 m-10 w-1/2'
         onSubmit={onSubmit}
       >
         <h1 className='text-5xl mb-5'>Ota yhteyttä</h1>
         <FormField label='Nimi*' controller={name} />
         <FormField label='Aihe*' controller={subject} />
         <FormField label='Viesti*' controller={content} multiline={true} />
-        <FormField label='Yhteystiedot' controller={contactInfo} />
+        <div className='flex my-5 text-lg justify-center items-center'>
+          <input
+            type='checkbox'
+            className='mr-3 h-6 w-6 '
+            value={wantsContact}
+            onChange={() => setWantsContact(!wantsContact)}
+          />
+          <label className=''>Haluan että minuun otetaan yhteyttä</label>
+        </div>
+        {wantsContact && (
+          <FormField label='Yhteystiedot' controller={contactInfo} />
+        )}
         {formError && <h4 className={styles.errorMessage}>{formError}</h4>}
         <p className='my-5'>* Pakollinen kenttä</p>
         <Button type='submit' text={'Lähetä'} isHollow={true} size={'lg'} />
