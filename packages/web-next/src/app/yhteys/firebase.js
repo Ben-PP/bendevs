@@ -27,6 +27,6 @@ if (process.env.NODE_ENV === 'development') {
   connectFunctionsEmulator(firebaseFunctions, '127.0.0.1', 5001)
 }
 
-const helloWorld = () => httpsCallable(firebaseFunctions, 'helloworld')
+const helloWorld = () => httpsCallable(firebaseFunctions, 'hellotypescript')
 
 export { app, helloWorld }
