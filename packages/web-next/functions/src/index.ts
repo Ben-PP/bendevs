@@ -20,7 +20,7 @@ export const hellotypescript = onCall(
     maxInstances: 1
   },
   (_request) => {
-    logger.info('Hello from typescript!', { structuredData: true })
+    logger.info('Hello from typescript v2!', { structuredData: true })
     return { hello: 'typescript' }
   }
 )
