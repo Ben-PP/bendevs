@@ -19,6 +19,7 @@ module.exports = {
       boxShadow: {
         lg: '0 5px 8px 2px rgba(49, 46, 129, 1)',
         hoverfp: '0 0 10px 10px rgba(49, 46, 129, 1)',
+        'hover-form-focus': '0 0 8px 10px rgba(69, 66, 149, 1)',
         card: '0px 0px 8px 3px rgba(49, 46, 129, 1)'
       },
       textColor: {
@@ -31,6 +32,11 @@ module.exports = {
         'accent-light': '#3F3F46'
       },
       borderColor: {
+        'primary-dark': '#D4D4D8',
+        secondary: '#6366F1',
+        'secondary-dark': '#4338CA'
+      },
+      ringColor: {
         'primary-dark': '#D4D4D8',
         secondary: '#6366F1',
         'secondary-dark': '#4338CA'

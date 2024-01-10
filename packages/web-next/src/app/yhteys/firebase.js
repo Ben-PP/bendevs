@@ -28,6 +28,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // Get this working
-const helloWorld = () => httpsCallable(firebaseFunctions, 'hellotypescript')
+const sendContactForm = () =>
+  httpsCallable(firebaseFunctions, 'sendcontactform')
 
-export { app, helloWorld }
+export { app, sendContactForm }
