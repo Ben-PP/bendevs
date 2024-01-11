@@ -22,6 +22,7 @@ jobs:
       - name: Deploy
         uses: w9jds/firebase-action@master
         env:
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
           PROJECT_PATH: packages/web-next
         with:
