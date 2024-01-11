@@ -17,10 +17,10 @@ jobs:
       - run: corepack enable
       - name: npm install
         run: cd packages/web-next/functions && npm install
-      - name: env
-        run: echo SENDGRID_API_KEY=${{secrets.SENDGRID_API_KEY}} > .env
       - name: back to project folder
         run: cd ..
+      - name: env
+        run: echo SENDGRID_API_KEY=${{secrets.SENDGRID_API_KEY}} > .env
       - name: Deploy
         uses: w9jds/firebase-action@master
         env:
