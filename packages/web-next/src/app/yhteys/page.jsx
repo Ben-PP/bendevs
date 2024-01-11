@@ -87,9 +87,12 @@ const ContactView = () => {
   }
 
   return (
-    <div className='flex flex-col flex-grow justify-start items-center'>
+    <div className='flex flex-col flex-grow justify-start items-center mx-5'>
       <form
-        className='text-center border-2 rounded-xl px-20 py-10 m-10 w-1/2'
+        className='
+          text-center border-2 rounded-xl px-2 lg:px-20 py-2 lg:py-10 m-2
+          lg:m-10 w-full lg:w-1/2
+        '
         onSubmit={onSubmit}
       >
         <h1 className='text-5xl mb-5'>Ota yhteyttä</h1>

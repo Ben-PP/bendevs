@@ -3,8 +3,12 @@ import TagButton from './TagButton'
 const Tags = ({ tags, title }) => {
   return (
     <>
-      <h4 className='text-lg mt-3 text-primary-dark'>{title}</h4>
-      {tags.length > 0 && <div className='flex flex-wrap '>{...tags}</div>}
+      <h4 className='text-lg my-3 text-primary-dark'>{title}</h4>
+      {tags.length > 0 && (
+        <div className='flex flex-wrap justify-center lg:justify-start '>
+          {...tags}
+        </div>
+      )}
       {tags.length === 0 && <p className='text-sm text-primary-dark'>Tyhjä</p>}
     </>
   )
@@ -26,7 +30,7 @@ const TagSorter = ({ handleTagClick, selectedTags, notSelectedTags }) => {
   }
 
   return (
-    <div className=''>
+    <div className='text-center lg:text-left'>
       <Tags title='Valitut' tags={createTagList(selectedTags, false)} />
 
       <Tags title='Tagit' tags={createTagList(notSelectedTags, true)} />

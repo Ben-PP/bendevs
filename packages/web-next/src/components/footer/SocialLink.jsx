@@ -22,7 +22,11 @@ const SocialLink = ({ text, url, iconType }) => {
   return (
     <FooterColumnItem>
       <div className=''>
-        <a href={url} target='_blank' className='flex flex-row items-center'>
+        <a
+          href={url}
+          target='_blank'
+          className='flex flex-row items-center justify-center sm:justify-start'
+        >
           <div className='pr-2'>{icon}</div>
           {text}
         </a>

@@ -11,19 +11,26 @@ import Tag from '../Tag'
 const ShowcaseCard = ({ icon, child }) => {
   return (
     <CardBase>
-      <h2 className='text-5xl mb-10 text-secondary font-bold'>{child.name}</h2>
-      {/*<p className='text-2xl text-primary-dark'>{child.description}</p>*/}
+      <h2
+        className='
+        text-5xl mb-10 text-secondary font-bold overflow-wrap
+         hyphens-auto text-pretty
+      '
+      >
+        {child.name}
+      </h2>
       <PortableText content={child.description} />
       <div className='flex flex-col lg:flex-row items-center justify-between mt-8'>
         <div className='flex-col overflow-y-auto'>
           <ul className='flex flex-grow-1 justify-center flex-wrap space-x-3'>
-            {child.tags.map((tag) => {
-              return (
-                <div key={tag} className='mb-2'>
-                  <Tag text={tag} />
-                </div>
-              )
-            })}
+            {child.tags &&
+              child.tags.map((tag) => {
+                return (
+                  <div key={tag} className='mb-2'>
+                    <Tag text={tag} />
+                  </div>
+                )
+              })}
           </ul>
         </div>
       </div>

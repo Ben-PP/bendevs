@@ -34,7 +34,8 @@ module.exports = {
       borderColor: {
         'primary-dark': '#D4D4D8',
         secondary: '#6366F1',
-        'secondary-dark': '#4338CA'
+        'secondary-dark': '#4338CA',
+        'accent-light': '#3F3F46'
       },
       ringColor: {
         'primary-dark': '#D4D4D8',
