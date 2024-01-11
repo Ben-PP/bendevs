@@ -30,7 +30,7 @@ export const sendcontactform = onCall(
 
     sgMail.setApiKey(sendgridAPIKey.value())
 
-    const WantsContact = `\n\n Wants to be contacted: ${emailData.contactInfo}`
+    const WantsContact = `\n\n\n Wants to be contacted: ${emailData.contactInfo}`
 
     const email = {
       to: 'karel.parkkola@gmail.com',
