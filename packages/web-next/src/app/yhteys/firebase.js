@@ -22,13 +22,12 @@ const config = {
 
 const app = initializeApp(config)
 
-const firebaseFunctions = getFunctions(app, 'europe-north1')
+const functions = getFunctions(app, 'europe-north1')
 if (process.env.NODE_ENV === 'development') {
-  connectFunctionsEmulator(firebaseFunctions, '127.0.0.1', 5001)
+  connectFunctionsEmulator(functions, '127.0.0.1', 5001)
 }
 
 // Get this working
-const sendContactForm = () =>
-  httpsCallable(firebaseFunctions, 'sendcontactform')
+const sendContactForm = httpsCallable(functions, 'sendcontactform')
 
 export { app, sendContactForm }

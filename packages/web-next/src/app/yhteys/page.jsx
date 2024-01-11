@@ -73,21 +73,17 @@ const ContactView = () => {
       setFormError('Viesti ei voi olla tyhjä')
       return
     }
-    // TODO: Implement
-    setFormError('Ei implementoitu vielä')
-    return
 
-    sendContactForm()
-      .call({
-        data: {
-          name: name.value,
-          subject: subject.value,
-          content: content.value
-        }
-      })
-      .then((result) => {
-        console.log(result)
-      })
+    setFormError(null)
+
+    sendContactForm({
+      name: name.value,
+      subject: subject.value,
+      content: content.value,
+      contactInfo: contactInfo.value
+    }).then((result) => {
+      console.log(result)
+    })
   }
 
   return (
