@@ -1,6 +1,6 @@
 import { onCall } from 'firebase-functions/v2/https'
 import * as logger from 'firebase-functions/logger'
-import { defineString } from 'firebase-functions/params'
+import { defineSecret } from 'firebase-functions/params'
 const sgMail = require('@sendgrid/mail')
 
 interface EmailData {
@@ -10,13 +10,14 @@ interface EmailData {
   contactInfo: string
 }
 
-const sendgridAPIKey = defineString('SENDGRID_API_KEY')
+const sendgridAPIKey = defineSecret('SENDGRID_API_KEY')
 
 export const sendcontactform = onCall(
   {
     enforceAppCheck: true,
     region: 'europe-north1',
-    maxInstances: 1
+    maxInstances: 1,
+    secrets: ['SENDGRID_API_KEY']
   },
   async (request) => {
     const data = request.data
