@@ -41,9 +41,8 @@ export const sendcontactform = onCall(
       }`
     }
     try {
-      const result = await sgMail.send(email)
+      await sgMail.send(email)
       logger.info('Email sent')
-      logger.info('Result: ', result)
       return { status: 'success' }
     } catch (error: any) {
       logger.error(error)
