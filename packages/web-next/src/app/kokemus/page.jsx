@@ -3,10 +3,9 @@ import sanityClient from '../../sanityClient'
 import JobCard from '../../components/cards/JobCard'
 import fetchOptions from '../../utils/fetchOption'
 import { JOBS_LIST_ITEMS } from '../../queries'
-import SidePanel from '../../components/SidePanel'
 import ContentPanel from '../../components/ContentPanel'
 import { useEffect, useState } from 'react'
-import TagSelector from '../../components/TagSelector'
+import FilteringSidePanel from '../../components/FilteringSidePanel'
 
 const ExperienceView = () => {
   const [selectedTags, setSelectedTags] = useState([])
@@ -43,11 +42,21 @@ const ExperienceView = () => {
 
   return (
     <div className='flex lg:flex-row flex-col w-screen flex-grow'>
-      <SidePanel>
-        <h2 className='text-4xl text-center lg:text-left w-full p-4 lg:pt-10 lg:px-10'>
+      <FilteringSidePanel
+        title='Työkokemus'
+        handleTagClick={handleTagClick}
+        notSelectedTags={notSelectedTags}
+        selectedTags={selectedTags}
+        setNotSelectedTags={setNotSelectedTags}
+        setSelectedTags={setSelectedTags}
+        setIsFilterHidden={setIsFilterHidden}
+        isFilterHidden={isFilterHidden}
+      />
+      {/*<SidePanel>
+        <h2 className='text-4xl text-center lg:text-left w-full p-4 lg:p-0 lg:pt-10'>
           Työkokemus
         </h2>
-        <div class={`p-10 lg:inline-block ${isFilterHidden ? 'hidden' : ''}`}>
+        <div class={`lg:inline-block ${isFilterHidden ? 'hidden' : ''}`}>
           <div className='flex flex-row justify-center lg:justify-start items-center w-full mt-10'>
             <h3 className='text-2xl text-left'>Suodata</h3>
             <button
@@ -72,7 +81,7 @@ const ExperienceView = () => {
         onClick={() => setIsFilterHidden(!isFilterHidden)}
       >
         {isFilterHidden ? 'Näytä suodatin' : 'Piilota suodatin'}
-      </button>
+      </button>*/}
       <ContentPanel backgroundImage='/abstract8.png'>
         {experiences.map((experience) => {
           if (

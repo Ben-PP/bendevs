@@ -2,10 +2,10 @@ import Tag from './Tag'
 
 const TagList = ({ tags }) => {
   return (
-    <ul className='flex flex-grow-1 justify-center flex-wrap space-x-3'>
+    <ul className='flex flex-grow-1 justify-center flex-wrap space-x-4'>
       {tags.map((tag) => {
         return (
-          <div key={tag} className='mb-2'>
+          <div key={tag} className='mb-4'>
             <Tag text={tag} />
           </div>
         )

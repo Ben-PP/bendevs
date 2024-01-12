@@ -5,8 +5,7 @@ import ShowcaseCard from '../../components/cards/ShowcaseCard'
 import fetchOptions from '../../utils/fetchOption'
 import { PROJECTS_LIST_ITEMS } from '../../queries'
 import ContentPanel from '../../components/ContentPanel'
-import SidePanel from '../../components/SidePanel'
-import TagSelector from '../../components/TagSelector'
+import FilteringSidePanel from '../../components/FilteringSidePanel'
 
 const ProjectsView = () => {
   const [selectedTags, setSelectedTags] = useState([])
@@ -44,11 +43,21 @@ const ProjectsView = () => {
 
   return (
     <div className='flex lg:flex-row flex-col w-full flex-grow'>
-      <SidePanel>
-        <h2 className='text-4xl text-center lg:text-left w-full p-4 lg:pt-10 lg:px-10'>
+      <FilteringSidePanel
+        title='Minun projektit'
+        handleTagClick={handleTagClick}
+        notSelectedTags={notSelectedTags}
+        selectedTags={selectedTags}
+        setNotSelectedTags={setNotSelectedTags}
+        setSelectedTags={setSelectedTags}
+        setIsFilterHidden={setIsFilterHidden}
+        isFilterHidden={isFilterHidden}
+      />
+      {/*<SidePanel>
+        <h2 className='text-4xl text-center lg:text-left w-full p-4 lg:p-0 lg:pt-10'>
           Minun projektit
         </h2>
-        <div class={`p-10 lg:inline-block ${isFilterHidden ? 'hidden' : ''}`}>
+        <div class={`lg:inline-block ${isFilterHidden ? 'hidden' : ''}`}>
           <div
             className='
           flex flex-row justify-center lg:justify-start items-center w-full
@@ -78,7 +87,7 @@ const ProjectsView = () => {
         onClick={() => setIsFilterHidden(!isFilterHidden)}
       >
         {isFilterHidden ? 'Näytä suodatin' : 'Piilota suodatin'}
-      </button>
+      </button>*/}
       <ContentPanel backgroundImage='/abstract8.png'>
         {projects &&
           projects.map((project) => {

@@ -1,6 +1,8 @@
 const SidePanel = ({ children }) => {
   return (
-    <div className='w-full lg:w-1/3 flex flex-col text-primary'>{children}</div>
+    <div className='w-full lg:w-1/3 flex flex-col text-primary px-10'>
+      {children}
+    </div>
   )
 }
 

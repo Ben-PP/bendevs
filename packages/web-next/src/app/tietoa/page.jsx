@@ -18,19 +18,27 @@ const AboutView = async () => {
   return (
     <div className='flex lg:flex-row flex-col w-full flex-grow'>
       <SidePanel>
-        <div className='aspect-square overflow-hidden rounded-full justify-center'>
-          <Image
-            className='w-full object-cover'
-            width={500}
-            height={500}
-            src={profileImageUrl}
-            alt='Image of Karel Parkkola'
-          />
+        <div className='py-10'>
+          <div
+            className='
+          aspect-square overflow-hidden rounded-full justify-center
+          '
+          >
+            <Image
+              className='w-full object-cover'
+              width={500}
+              height={500}
+              src={profileImageUrl}
+              alt='Image of Karel Parkkola'
+            />
+          </div>
+          <div className='text-4xl text-center my-8'>{profile.name}</div>
+          <div className='text-xl text-left text-primary'>{profile.bio}</div>
+          <div className='pt-10'>
+            <h3 className='my-5 text-3xl text-center'>Osaaminen</h3>
+            <TagList tags={profile.skills} />
+          </div>
         </div>
-        <div className='text-4xl text-center my-8'>{profile.name}</div>
-        <div className='text-xl text-left text-primary'>{profile.bio}</div>
-        <h3 className='my-5 text-3xl text-center'>Osaaminen</h3>
-        <TagList tags={profile.skills} />
       </SidePanel>
       <ContentPanel backgroundImage='/abstract8.png'>
         {blocks.map((block) => {
