@@ -1,5 +1,5 @@
 import CardBase from './CardBase'
-import Tag from '../Tag'
+import Tag from '../tags/Tag'
 import { TitleLarge, TitleSmall, BodyMedium } from '@/components/text'
 
 const JobCard = ({ job }) => {

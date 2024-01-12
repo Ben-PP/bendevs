@@ -6,7 +6,7 @@ import {
 } from 'firebase/app-check'
 import { useEffect, useState } from 'react'
 import { sendContactForm, app } from './firebase'
-import Button from '../../components/Button'
+import { Button } from '@/components/buttons'
 import { useField } from '../../hooks'
 import {
   TitleLarge,
@@ -14,6 +14,19 @@ import {
   LabelMedium,
   LabelSmall
 } from 'components/text'
+import { ButtonType, ButtonSize } from 'types'
+
+type FieldController = {
+  type: string
+  value: string
+  onChange: (event: any) => void
+}
+
+type FormFieldProps = {
+  label: string
+  controller: FieldController
+  multiline?: boolean
+}
 
 const styles = {
   input: `
@@ -23,7 +36,11 @@ const styles = {
   errorMessage: 'border-red-600 border-2 rounded-xl py-2'
 }
 
-const FormField = ({ label, controller, multiline }) => {
+const FormField = ({
+  label,
+  controller,
+  multiline = false
+}: FormFieldProps) => {
   const field = multiline ? (
     <textarea
       className={`${styles.input} resize-none`}
@@ -46,9 +63,9 @@ const ContactView = () => {
   const { reset: subjectReset, ...subject } = useField('text')
   const { reset: contentReset, ...content } = useField('text')
   const { reset: contactInfoReset, ...contactInfo } = useField('text')
-  const [formError, setFormError] = useState()
-  const [wantsContact, setWantsContact] = useState(false)
-  const [sendStatus, setSendStatus] = useState(null)
+  const [formError, setFormError] = useState<string | null>()
+  const [wantsContact, setWantsContact] = useState<boolean>(false)
+  const [sendStatus, setSendStatus] = useState<string | null>(null)
 
   useEffect(() => {
     if (process.env.NODE_ENV !== 'production') {
@@ -62,7 +79,7 @@ const ContactView = () => {
       isTokenAutoRefreshEnabled: true
     })
   }, [])
-  const onSubmit = (event) => {
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
     setSendStatus('loading')
@@ -93,7 +110,6 @@ const ContactView = () => {
       content: content.value,
       contactInfo: contactInfo.value
     }).then((result) => {
-      console.log(result)
       setSendStatus('ok')
       nameReset()
       subjectReset()
@@ -119,7 +135,7 @@ const ContactView = () => {
           <input
             type='checkbox'
             className='mr-3 h-6 w-6 flex-shrink-0'
-            value={wantsContact}
+            value={`${wantsContact}`}
             onChange={() => setWantsContact(!wantsContact)}
           />
           <LabelSmall>Haluan että minuun otetaan yhteyttä</LabelSmall>
@@ -135,11 +151,11 @@ const ContactView = () => {
           </TitleSmall>
         )}
         <Button
-          type='submit'
+          type={ButtonType.SUBMIT}
           text={'Lähetä'}
-          isHollow={true}
-          size={'lg'}
+          size={ButtonSize.LARGE}
           isLoading={sendStatus !== null && sendStatus !== 'ok'}
+          isHollow={true}
         />
       </form>
     </div>

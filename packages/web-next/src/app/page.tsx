@@ -1,11 +1,14 @@
 import sanityClient from '../sanityClient'
 import fetchOptions from '../utils/fetchOption'
 import { FRONT_PAGE_BLOCKS } from '../queries'
-import PortableTextCard from '../components/cards/PortableTextCard'
-import NavigationCard from '../components/cards/NavigationCard'
+import { NavigationCard, PortableTextCard } from '@/components/cards'
+import { PortableTextBlockData } from 'types'
 
 const Home = async () => {
-  const blocks = await sanityClient.fetch(FRONT_PAGE_BLOCKS, fetchOptions)
+  const dataBlocks: PortableTextBlockData[] = await sanityClient.fetch(
+    FRONT_PAGE_BLOCKS,
+    fetchOptions
+  )
 
   return (
     <main className='w-full flex-grow flex flex-col justify-start items-center'>
@@ -14,8 +17,10 @@ const Home = async () => {
         style={{ backgroundImage: 'url("/abstract1.png")' }}
       >
         <div className='xl:w-2/3 :w-full mx-5 lg:mx-20 xl:mx-0 my-20'>
-          {blocks.map((block) => {
-            return <PortableTextCard key={block._id} block={block} />
+          {dataBlocks.map((block) => {
+            return (
+              <PortableTextCard key={block._id} contentBlocks={block.content} />
+            )
           })}
         </div>
       </div>

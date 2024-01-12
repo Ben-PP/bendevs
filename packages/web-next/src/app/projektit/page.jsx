@@ -4,8 +4,8 @@ import sanityClient from '../../sanityClient'
 import ShowcaseCard from '../../components/cards/ShowcaseCard'
 import fetchOptions from '../../utils/fetchOption'
 import { PROJECTS_LIST_ITEMS } from '../../queries'
-import ContentPanel from '../../components/ContentPanel'
-import FilteringSidePanel from '../../components/FilteringSidePanel'
+import ContentPanel from '../../components/panels/ContentPanel'
+import FilteringSidePanel from '../../components/panels/FilteringSidePanel'
 
 const ProjectsView = () => {
   const [selectedTags, setSelectedTags] = useState([])

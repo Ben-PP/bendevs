@@ -1,7 +1,7 @@
 import { RxArrowRight } from 'react-icons/rx'
 import PortableText from '../PortableText'
 import CardBase from './CardBase'
-import Tag from '../Tag'
+import Tag from '../tags/Tag'
 import { TitleLarge } from '@/components/text'
 
 /**

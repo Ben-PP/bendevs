@@ -3,9 +3,9 @@ import sanityClient from '../../sanityClient'
 import JobCard from '../../components/cards/JobCard'
 import fetchOptions from '../../utils/fetchOption'
 import { JOBS_LIST_ITEMS } from '../../queries'
-import ContentPanel from '../../components/ContentPanel'
+import ContentPanel from '../../components/panels/ContentPanel'
 import { useEffect, useState } from 'react'
-import FilteringSidePanel from '../../components/FilteringSidePanel'
+import FilteringSidePanel from '../../components/panels/FilteringSidePanel'
 
 const ExperienceView = () => {
   const [selectedTags, setSelectedTags] = useState([])

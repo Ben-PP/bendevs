@@ -3,13 +3,17 @@ import sanityClient from '../../sanityClient'
 import fetchOptions from '../../utils/fetchOption'
 import { ABOUT_PAGE_BLOCKS, PROFILE_IMAGE_URL, PROFILE } from '../../queries'
 import PortableTextCard from '../../components/cards/PortableTextCard'
-import TagList from '../../components/TagList'
-import SidePanel from '../../components/SidePanel'
-import ContentPanel from '../../components/ContentPanel'
+import TagList from '../../components/tags/TagList'
+import SidePanel from '../../components/panels/SidePanel'
+import ContentPanel from '../../components/panels/ContentPanel'
 import { TitleMedium, TitleSmall, BodySmall } from '@/components/text'
+import { PortableTextBlockData } from 'types'
 
 const AboutView = async () => {
-  const blocks = await sanityClient.fetch(ABOUT_PAGE_BLOCKS, fetchOptions)
+  const dataBlocks: PortableTextBlockData[] = await sanityClient.fetch(
+    ABOUT_PAGE_BLOCKS,
+    fetchOptions
+  )
   const profileImageUrl = await sanityClient.fetch(
     PROFILE_IMAGE_URL,
     fetchOptions
@@ -19,7 +23,7 @@ const AboutView = async () => {
   return (
     <div className='flex lg:flex-row flex-col w-full flex-grow'>
       <SidePanel>
-        <div className='py-10'>
+        <div className='p-10'>
           <div
             className='
           aspect-square overflow-hidden rounded-full justify-center
@@ -50,10 +54,10 @@ const AboutView = async () => {
         </div>
       </SidePanel>
       <ContentPanel backgroundImage='/abstract8.png'>
-        {blocks.map((block) => {
+        {dataBlocks.map((block) => {
           return (
             <div key={block._id} className='p-5 lg:px-20 lg:py-10'>
-              <PortableTextCard block={block} />
+              <PortableTextCard contentBlocks={block.content} />
             </div>
           )
         })}

@@ -1,4 +1,4 @@
-import { TextProps } from './types'
+import { TextProps } from 'types'
 
 const BodyMedium = ({
   children,
@@ -11,7 +11,7 @@ const BodyMedium = ({
   return (
     <p
       className={`${size} ${weight} ${color} ${margin} ${
-        wrap ? 'overflow-wrap  hyphens-auto text-pretty' : ''
+        wrap ? 'break-words  hyphens-auto text-pretty' : ''
       }`}
     >
       {children}

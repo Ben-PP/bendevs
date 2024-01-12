@@ -11131,6 +11131,7 @@ __metadata:
     "@firebase/app-check": "npm:^0.8.1"
     "@firebase/functions": "npm:^0.11.0"
     "@portabletext/react": "npm:^3.0.11"
+    "@portabletext/types": "npm:^2.0.8"
     "@sanity/block-content-to-react": "npm:^3.0.0"
     "@types/react": "npm:^18.2.47"
     autoprefixer: "npm:^10.0.1"

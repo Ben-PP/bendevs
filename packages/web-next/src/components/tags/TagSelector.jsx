@@ -1,5 +1,5 @@
 import TagButton from './TagButton'
-import { TitleXSmall, BodyXSmall } from './text'
+import { TitleXSmall, BodyXSmall } from '../text'
 
 const Tags = ({ tags, title }) => {
   return (

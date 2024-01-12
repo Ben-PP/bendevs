@@ -1,4 +1,4 @@
-import { TextProps } from './types'
+import { TextProps } from 'types'
 
 const LabelMedium = ({
   children,
