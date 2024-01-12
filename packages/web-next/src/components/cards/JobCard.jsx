@@ -1,5 +1,6 @@
 import CardBase from './CardBase'
 import Tag from '../Tag'
+import { TitleLarge, TitleSmall, BodyMedium } from '@/components/text'
 
 const JobCard = ({ job }) => {
   const startDate = new Date(job.startDate)
@@ -12,12 +13,17 @@ const JobCard = ({ job }) => {
   }/${startDate.getFullYear()}`
   return (
     <CardBase>
-      <h2 className='text-5xl mb-8 text-primary-dark font-bold'>
+      <TitleLarge margin='mb-8' color='text-primary-dark' weight='font-bold'>
         {job.jobTitle}
-      </h2>
-      <h3 className='text-3xl  text-secondary mb-5'>{`${startDateString} - ${endDateString}`}</h3>
-      <h3 className='text-3xl font-bold text-secondary mb-5'>{job.company}</h3>
-      <p className='text-2xl text-primary-dark'>{job.shortDescription}</p>
+      </TitleLarge>
+      <TitleSmall
+        color='text-secondary'
+        margin='mb-5'
+      >{`${startDateString} - ${endDateString}`}</TitleSmall>
+      <TitleSmall weight='font-bold' color='text-secondary' margin='mb-5'>
+        {job.company}
+      </TitleSmall>
+      <BodyMedium>{job.shortDescription}</BodyMedium>
       <div
         className='flex flex-col items-start justify-between
       my-8 overflow-y-auto'

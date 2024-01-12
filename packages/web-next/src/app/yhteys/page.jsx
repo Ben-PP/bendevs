@@ -8,13 +8,18 @@ import { useEffect, useState } from 'react'
 import { sendContactForm, app } from './firebase'
 import Button from '../../components/Button'
 import { useField } from '../../hooks'
+import {
+  TitleLarge,
+  TitleSmall,
+  LabelMedium,
+  LabelSmall
+} from 'components/text'
 
 const styles = {
   input: `
   shadow appearance-none border rounded-xl w-full my-5 py-2 px-3 text-accent-dark
   leading-tight focus:outline-none focus:shadow-hover-form-focus
   `,
-  label: 'text-2xl',
   errorMessage: 'border-red-600 border-2 rounded-xl py-2'
 }
 
@@ -30,7 +35,7 @@ const FormField = ({ label, controller, multiline }) => {
   )
   return (
     <div>
-      <h4 className={styles.label}>{label}</h4>
+      <LabelMedium>{label}</LabelMedium>
       {field}
     </div>
   )
@@ -106,18 +111,18 @@ const ContactView = () => {
         '
         onSubmit={onSubmit}
       >
-        <h1 className='text-5xl mb-5'>Ota yhteyttä</h1>
+        <TitleLarge margin='mb-10'>Ota yhteyttä</TitleLarge>
         <FormField label='Nimi*' controller={name} />
         <FormField label='Aihe*' controller={subject} />
         <FormField label='Viesti*' controller={content} multiline={true} />
         <div className='flex my-5 text-lg justify-center items-center'>
           <input
             type='checkbox'
-            className='mr-3 h-6 w-6 '
+            className='mr-3 h-6 w-6 flex-shrink-0'
             value={wantsContact}
             onChange={() => setWantsContact(!wantsContact)}
           />
-          <label className=''>Haluan että minuun otetaan yhteyttä</label>
+          <LabelSmall>Haluan että minuun otetaan yhteyttä</LabelSmall>
         </div>
         {wantsContact && (
           <FormField label='Yhteystiedot' controller={contactInfo} />
@@ -125,7 +130,9 @@ const ContactView = () => {
         {formError && <h4 className={styles.errorMessage}>{formError}</h4>}
         <p className='my-5'>* Pakollinen kenttä</p>
         {sendStatus === 'ok' && (
-          <h3 className='text-3xl pb-5 text-green-600'>Viesti lähetetty!</h3>
+          <TitleSmall color='text-green-600' margin='mb-5'>
+            Viesti lähetetty!
+          </TitleSmall>
         )}
         <Button
           type='submit'

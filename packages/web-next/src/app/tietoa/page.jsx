@@ -6,6 +6,7 @@ import PortableTextCard from '../../components/cards/PortableTextCard'
 import TagList from '../../components/TagList'
 import SidePanel from '../../components/SidePanel'
 import ContentPanel from '../../components/ContentPanel'
+import { TitleMedium, TitleSmall, BodySmall } from '@/components/text'
 
 const AboutView = async () => {
   const blocks = await sanityClient.fetch(ABOUT_PAGE_BLOCKS, fetchOptions)
@@ -32,10 +33,18 @@ const AboutView = async () => {
               alt='Image of Karel Parkkola'
             />
           </div>
-          <div className='text-4xl text-center my-8'>{profile.name}</div>
-          <div className='text-xl text-left text-primary'>{profile.bio}</div>
-          <div className='pt-10'>
-            <h3 className='my-5 text-3xl text-center'>Osaaminen</h3>
+          <div className='text-center my-8'>
+            <TitleMedium>{profile.name}</TitleMedium>
+          </div>
+          <BodySmall wrap={false}>{profile.bio}</BodySmall>
+          <div className='pt-10 text-center'>
+            <TitleSmall
+              weight='font-bold'
+              color='text-primary-dark'
+              margin='my-5'
+            >
+              Osaaminen
+            </TitleSmall>
             <TagList tags={profile.skills} />
           </div>
         </div>

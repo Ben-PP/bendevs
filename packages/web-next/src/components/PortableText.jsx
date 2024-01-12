@@ -1,16 +1,15 @@
 import { PortableText as NativePortableText } from '@portabletext/react'
+import { TitleLarge, BodyMedium } from 'components/text'
 
-const baseStyle = 'overflow-wrap hyphens-auto text-pretty'
+const baseStyle = 'break-words hyphens-auto text-pretty'
 const defaultComponents = {
   block: {
     h1: ({ children }) => (
-      <h1 className={`text-5xl mb-10 font-bold text-secondary ${baseStyle}`}>
+      <TitleLarge color='text-secondary' margin='mb-10' weight='font-bold'>
         {children}
-      </h1>
+      </TitleLarge>
     ),
-    normal: ({ children }) => (
-      <p className={`text-2xl text-primary-dark ${baseStyle}`}>{children}</p>
-    ),
+    normal: ({ children }) => <BodyMedium>{children}</BodyMedium>,
     default: ({ children }) => <p className={baseStyle}>{children}</p>
   }
 }

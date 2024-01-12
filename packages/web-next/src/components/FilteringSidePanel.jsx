@@ -10,7 +10,7 @@ const Filter = ({
   isFilterHidden
 }) => {
   return (
-    <div class={`lg:inline-block ${isFilterHidden ? 'hidden' : ''}`}>
+    <div className={`lg:inline-block ${isFilterHidden ? 'hidden' : ''}`}>
       <div>
         <h3>Suodata</h3>
         <button

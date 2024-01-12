@@ -2,6 +2,7 @@ import { RxArrowRight } from 'react-icons/rx'
 import PortableText from '../PortableText'
 import CardBase from './CardBase'
 import Tag from '../Tag'
+import { TitleLarge } from '@/components/text'
 
 /**
  * Showcase something with a title, description and tags!
@@ -11,14 +12,9 @@ import Tag from '../Tag'
 const ShowcaseCard = ({ icon, child }) => {
   return (
     <CardBase>
-      <h2
-        className='
-        text-5xl mb-10 text-secondary font-bold overflow-wrap
-         hyphens-auto text-pretty
-      '
-      >
+      <TitleLarge color='text-secondary' weight='font-bold' margin='mb-10'>
         {child.name}
-      </h2>
+      </TitleLarge>
       <PortableText content={child.description} />
       <div className='flex flex-col lg:flex-row items-center justify-between mt-8'>
         <div className='flex-col overflow-y-auto'>
@@ -34,6 +30,7 @@ const ShowcaseCard = ({ icon, child }) => {
           </ul>
         </div>
       </div>
+      {/* TODO Convert these to a button */}
       <div className='flex flex-col lg:flex-row justify-evenly mt-8'>
         {child.github && (
           <a

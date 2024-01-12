@@ -1,15 +1,16 @@
 import TagButton from './TagButton'
+import { TitleXSmall, BodyXSmall } from './text'
 
 const Tags = ({ tags, title }) => {
   return (
     <>
-      <h4 className='text-lg my-3 text-primary-dark'>{title}</h4>
+      <TitleXSmall margin='my-4'>{title}</TitleXSmall>
       {tags.length > 0 && (
         <div className='flex flex-wrap justify-center lg:justify-start '>
           {...tags}
         </div>
       )}
-      {tags.length === 0 && <p className='text-sm text-primary-dark'>Tyhjä</p>}
+      {tags.length === 0 && <BodyXSmall>Tyhjä</BodyXSmall>}
     </>
   )
 }
