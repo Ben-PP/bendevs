@@ -1,4 +1,6 @@
-const Button = ({ text, onClick, type, isHollow, size }) => {
+import BeatLoader from 'react-spinners/BeatLoader'
+
+const Button = ({ text, onClick, type, isHollow, size, isLoading }) => {
   const style = isHollow
     ? 'bg-transparent border-2 border-primary hover:border-accent hover:text-secondary'
     : 'bg-accent-dark text-primary hover:bg-accent '
@@ -17,6 +19,7 @@ const Button = ({ text, onClick, type, isHollow, size }) => {
     default:
       break
   }
+  console.log(isLoading)
 
   return (
     <button
@@ -24,7 +27,7 @@ const Button = ({ text, onClick, type, isHollow, size }) => {
       type={type ? type : ''}
       onClick={onClick}
     >
-      {text}
+      {isLoading ? <BeatLoader color='white' /> : text}
     </button>
   )
 }

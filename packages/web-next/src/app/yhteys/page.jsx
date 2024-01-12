@@ -43,6 +43,7 @@ const ContactView = () => {
   const { reset: contactInfoReset, ...contactInfo } = useField('text')
   const [formError, setFormError] = useState()
   const [wantsContact, setWantsContact] = useState(false)
+  const [sendStatus, setSendStatus] = useState(null)
 
   useEffect(() => {
     if (process.env.NODE_ENV !== 'production') {
@@ -59,18 +60,23 @@ const ContactView = () => {
   const onSubmit = (event) => {
     event.preventDefault()
 
+    setSendStatus('loading')
+
     if (name.value === '') {
       setFormError('Nimi ei voi olla tyhjä')
+      setSendStatus(null)
       return
     }
 
     if (subject.value === '') {
       setFormError('Aihe ei voi olla tyhjä')
+      setSendStatus(null)
       return
     }
 
     if (content.value === '') {
       setFormError('Viesti ei voi olla tyhjä')
+      setSendStatus(null)
       return
     }
 
@@ -83,6 +89,11 @@ const ContactView = () => {
       contactInfo: contactInfo.value
     }).then((result) => {
       console.log(result)
+      setSendStatus('ok')
+      nameReset()
+      subjectReset()
+      contentReset()
+      contactInfoReset()
     })
   }
 
@@ -113,7 +124,16 @@ const ContactView = () => {
         )}
         {formError && <h4 className={styles.errorMessage}>{formError}</h4>}
         <p className='my-5'>* Pakollinen kenttä</p>
-        <Button type='submit' text={'Lähetä'} isHollow={true} size={'lg'} />
+        {sendStatus === 'ok' && (
+          <h3 className='text-3xl pb-5 text-green-600'>Viesti lähetetty!</h3>
+        )}
+        <Button
+          type='submit'
+          text={'Lähetä'}
+          isHollow={true}
+          size={'lg'}
+          isLoading={sendStatus !== null && sendStatus !== 'ok'}
+        />
       </form>
     </div>
   )
