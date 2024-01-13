@@ -1,3 +1,5 @@
+import { Rule } from 'sanity'
+
 export default {
   name: 'socialLinks',
   type: 'document',
@@ -20,7 +22,7 @@ export default {
       options: {
         list: ['github', 'linkedin']
       },
-      validation: (Rule) => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     }
   ]
 }

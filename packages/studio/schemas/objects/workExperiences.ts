@@ -1,3 +1,5 @@
+import { Rule } from 'sanity'
+
 export default {
   name: 'workExperiences',
   title: 'Work Experinces',
@@ -7,13 +9,13 @@ export default {
       name: 'company',
       title: 'Company',
       type: 'string',
-      validation: (Rule) => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'startDate',
       title: 'Start date',
       type: 'date',
-      validation: (Rule) => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'endDate',
@@ -24,7 +26,7 @@ export default {
       name: 'title',
       title: 'Job title',
       type: 'string',
-      validation: (Rule) => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'description',
@@ -32,7 +34,7 @@ export default {
       type: 'array',
       sortable: 'true',
       of: [{ type: 'block' }],
-      validation: (Rule) => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'location',

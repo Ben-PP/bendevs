@@ -1,9 +1,6 @@
 import React from 'react'
-import { DashboardWidgetContainer } from '@sanity/dashboard'
 import SiteDeploy from './SiteDeploy'
-//import Button from '@sanity/ui/Button'
-
-const defaultProps = {}
+import { Site } from './types'
 
 /*
  * Generate finegrained token in github settings -> developer settings ->
@@ -11,8 +8,7 @@ const defaultProps = {}
  * read & write permission for content.
  * (Or use classic token set to not expire)
  */
-const GitHubActionsWidget = (props) => {
-  const { sites } = { ...defaultProps, ...props }
+const GitHubActionsWidget = ({ sites }: { sites: Site[] }) => {
   if (!sites)
     throw new Error(
       'GithubActionsWidget requires sites prop with one or more sites'
