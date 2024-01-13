@@ -1,4 +1,9 @@
-const ContentPanel = ({ children, backgroundImage }) => {
+type ContentPanelProps = {
+  children: React.ReactNode
+  backgroundImage: string
+}
+
+const ContentPanel = ({ children, backgroundImage }: ContentPanelProps) => {
   return (
     <div
       className='w-full bg-cover bg-center'

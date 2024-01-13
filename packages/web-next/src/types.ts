@@ -26,6 +26,11 @@ export enum ButtonSize {
   LARGE = 'large'
 }
 
+export enum SocialLinkIcon {
+  GITHUB = 'github',
+  LINKEDIN = 'linkedin'
+}
+
 interface SanityDocumentData {
   _type: string
   _createdAt: string
@@ -33,6 +38,32 @@ interface SanityDocumentData {
   _rev: string
   _id: string
 }
+
+export interface SocialLinkData extends SanityDocumentData {
+  icon: SocialLinkIcon
+  text: string
+  url: string
+}
+
+export interface ExperienceData extends SanityDocumentData {
+  title: string
+  description: PortableTextBlock[]
+  startDate?: string
+  endDate?: string
+  tags?: string[]
+}
+
+export interface JobData extends ExperienceData {
+  company: string
+  location?: string
+}
+
+export interface ProjectData extends ExperienceData {
+  github?: string
+  availableAt?: string
+}
+
+export type ShocaseCardChild = JobData | ProjectData
 
 export interface PortableTextBlockData extends SanityDocumentData {
   content: PortableTextBlock[]

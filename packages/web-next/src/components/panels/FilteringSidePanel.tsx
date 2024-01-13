@@ -1,8 +1,23 @@
 import SidePanel from './SidePanel'
 import TagSelector from '../tags/TagSelector'
-import { TitleLarge, TitleMedium, TitleSmall } from '../text'
+import { TitleMedium, TitleSmall } from '../text'
 import { Button } from '../buttons'
 import { ButtonSize } from 'types'
+
+interface FilterProps {
+  handleTagClick: (tag: string) => void
+  notSelectedTags: string[]
+  selectedTags: string[]
+  setNotSelectedTags: (tags: string[]) => void
+  setSelectedTags: (tags: string[]) => void
+  isFilterHidden: boolean
+}
+
+interface FilteringSidePanelProps extends FilterProps {
+  title: string
+  setIsFilterHidden: (isHidden: boolean) => void
+  isFilterHidden: boolean
+}
 
 const Filter = ({
   handleTagClick,
@@ -11,7 +26,7 @@ const Filter = ({
   setNotSelectedTags,
   setSelectedTags,
   isFilterHidden
-}) => {
+}: FilterProps) => {
   return (
     <div
       className={`
@@ -49,7 +64,7 @@ const FilteringSidePanel = ({
   setSelectedTags,
   setIsFilterHidden,
   isFilterHidden
-}) => {
+}: FilteringSidePanelProps) => {
   return (
     <SidePanel>
       <div className='text-center lg:text-left px-4 py-4 lg:px-6 lg:py-10'>

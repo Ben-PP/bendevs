@@ -6,10 +6,14 @@ import FooterColumn from './FooterColumn'
 import SocialLink from './SocialLink'
 import { SOCIAL_LINKS } from '../../queries'
 import FooterColumnItem from './FooterColumnItem'
+import { SocialLinkData } from 'types'
 
 const Footer = async () => {
   const currentYear = new Date().getFullYear()
-  const socialLinks = await sanityClient.fetch(SOCIAL_LINKS, fetchOptions)
+  const socialLinks: SocialLinkData[] = await sanityClient.fetch(
+    SOCIAL_LINKS,
+    fetchOptions
+  )
 
   return (
     <footer className='bg-tertiary p-5'>

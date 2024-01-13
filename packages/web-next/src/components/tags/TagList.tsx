@@ -1,6 +1,10 @@
 import Tag from './Tag'
 
-const TagList = ({ tags }) => {
+type TagListProps = {
+  tags: string[]
+}
+
+const TagList = ({ tags }: TagListProps) => {
   return (
     <ul className='flex flex-grow-1 justify-center flex-wrap space-x-4'>
       {tags.map((tag) => {

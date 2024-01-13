@@ -1,4 +1,4 @@
-import PortableText from '@/components/PortableText'
+import { PortableText } from '@/components/text'
 import { PortableTextBlock } from '@portabletext/types'
 import CardBase from './CardBase'
 

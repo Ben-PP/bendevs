@@ -3,15 +3,22 @@ import { RxLinkedinLogo } from 'react-icons/rx'
 import { RxLink2 } from 'react-icons/rx'
 
 import FooterColumnItem from './FooterColumnItem'
+import { SocialLinkIcon } from 'types'
 
-const SocialLink = ({ text, url, iconType }) => {
+type SocialLinkProps = {
+  text: string
+  url: string
+  iconType: SocialLinkIcon
+}
+
+const SocialLink = ({ text, url, iconType }: SocialLinkProps) => {
   const iconSize = 20
   let icon
   switch (iconType) {
-    case 'github':
+    case SocialLinkIcon.GITHUB:
       icon = <RxGithubLogo size={iconSize} />
       break
-    case 'linkedin':
+    case SocialLinkIcon.LINKEDIN:
       icon = <RxLinkedinLogo size={iconSize} />
       break
     default:

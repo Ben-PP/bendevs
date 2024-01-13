@@ -1,6 +1,11 @@
 import { TitleSmall } from '@/components/text'
 
-const FooterColumn = ({ title, children }) => {
+type FooterColumnProps = {
+  title: string
+  children: React.ReactNode
+}
+
+const FooterColumn = ({ title, children }: FooterColumnProps) => {
   return (
     <div className='flex flex-col px-10'>
       <div className='text-center sm:text-start'>

@@ -7,6 +7,7 @@ import LabelSmall from './LabelSmall'
 import BodyMedium from './BodyMedium'
 import BodySmall from './BodySmall'
 import BodyXSmall from './BodyXSmall'
+import PortableText from './PortableText'
 
 export {
   TitleLarge,
@@ -17,5 +18,6 @@ export {
   LabelSmall,
   BodyMedium,
   BodySmall,
-  BodyXSmall
+  BodyXSmall,
+  PortableText
 }

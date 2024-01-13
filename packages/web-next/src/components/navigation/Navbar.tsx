@@ -4,15 +4,36 @@ import { usePathname } from 'next/navigation'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import NavItem from './NavItem'
 
-const menuItems = [
-  { href: '/tietoa', label: 'Tietoa' },
-  { href: '/projektit', label: 'Projektit' },
-  { href: '/kokemus', label: 'Työkokemus' },
-  { href: '/yhteys', label: 'Ota yhteyttä' }
-]
-const selectedStyle = 'text-secondary'
+type MenuItem = {
+  href: string
+  label: string
+}
 
-const MobileMenu = ({ onPageSelect, pathname }) => {
+interface MenuProps {
+  pathname: string
+}
+
+interface MobileMenuProps extends MenuProps {
+  onPageSelect: () => void
+}
+
+type NavbarProps = {
+  height: string
+}
+
+const menuItems: MenuItem[] = [
+  { href: '/tietoa/', label: 'Tietoa' },
+  { href: '/projektit/', label: 'Projektit' },
+  { href: '/kokemus/', label: 'Työkokemus' },
+  { href: '/yhteys/', label: 'Ota yhteyttä' }
+]
+
+const getColor = (pathname: string, href: string) => {
+  const selectedStyle = 'text-secondary'
+  return pathname === `${href}` ? selectedStyle : undefined
+}
+
+const MobileMenu = ({ onPageSelect, pathname }: MobileMenuProps) => {
   return (
     <div className='flex flex-col items-center justify-start  bg-secondary shadow-nav h-full '>
       {menuItems.map((item) => {
@@ -22,7 +43,7 @@ const MobileMenu = ({ onPageSelect, pathname }) => {
             href={item.href}
             key={item.href}
             label={item.label}
-            className={pathname === `${item.href}/` ? selectedStyle : null}
+            color={getColor(pathname, item.href)}
           />
         )
       })}
@@ -30,7 +51,7 @@ const MobileMenu = ({ onPageSelect, pathname }) => {
   )
 }
 
-const FullMenu = ({ pathname }) => {
+const FullMenu = ({ pathname }: MenuProps) => {
   return (
     <div className='flex flex-row '>
       {menuItems.map((item) => {
@@ -39,7 +60,7 @@ const FullMenu = ({ pathname }) => {
             href={item.href}
             key={item.href}
             label={item.label}
-            className={pathname === `${item.href}/` ? selectedStyle : null}
+            color={getColor(pathname, item.href)}
           />
         )
       })}
@@ -47,7 +68,7 @@ const FullMenu = ({ pathname }) => {
   )
 }
 
-const Navbar = ({ height }) => {
+const Navbar = ({ height }: NavbarProps) => {
   const [showMenu, setShowMenu] = useState(false)
   const pathname = usePathname()
 
@@ -67,7 +88,8 @@ const Navbar = ({ height }) => {
         <NavItem
           href='/'
           label='Bendevs'
-          className={pathname === '/' ? selectedStyle : null}
+          color={getColor(pathname, '/')}
+          onClick={onPageSelect}
         ></NavItem>
 
         <div className={'lg:hidden flex flex-col items-end'}>

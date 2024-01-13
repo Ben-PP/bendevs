@@ -1,4 +1,9 @@
-const CardBase = ({ children, className, ...props }) => {
+type CardBaseProps = {
+  children: React.ReactNode
+  className?: string
+}
+
+const CardBase = ({ children, className, ...props }: CardBaseProps) => {
   return (
     <div
       className={`${className}

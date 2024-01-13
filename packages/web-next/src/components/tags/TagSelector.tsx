@@ -1,7 +1,12 @@
 import TagButton from './TagButton'
 import { TitleXSmall, BodyXSmall } from '../text'
 
-const Tags = ({ tags, title }) => {
+type TagsProps = {
+  tags: JSX.Element[]
+  title: string
+}
+
+const Tags = ({ tags, title }: TagsProps) => {
   return (
     <>
       <TitleXSmall margin='my-4'>{title}</TitleXSmall>
@@ -15,8 +20,18 @@ const Tags = ({ tags, title }) => {
   )
 }
 
-const TagSorter = ({ handleTagClick, selectedTags, notSelectedTags }) => {
-  const createTagList = (tags, isHollow) => {
+type TagSorterProps = {
+  handleTagClick: (tag: string) => void
+  selectedTags: string[]
+  notSelectedTags: string[]
+}
+
+const TagSorter = ({
+  handleTagClick,
+  selectedTags,
+  notSelectedTags
+}: TagSorterProps) => {
+  const createTagList = (tags: string[], isHollow?: boolean) => {
     return tags.sort().map((tag) => {
       return (
         <div key={tag} className='mx-1 my-1'>
@@ -32,7 +47,7 @@ const TagSorter = ({ handleTagClick, selectedTags, notSelectedTags }) => {
 
   return (
     <div className='text-center lg:text-left'>
-      <Tags title='Valitut' tags={createTagList(selectedTags, false)} />
+      <Tags title='Valitut' tags={createTagList(selectedTags)} />
 
       <Tags title='Tagit' tags={createTagList(notSelectedTags, true)} />
     </div>
