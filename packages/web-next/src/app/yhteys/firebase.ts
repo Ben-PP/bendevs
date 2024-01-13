@@ -27,7 +27,6 @@ if (process.env.NODE_ENV === 'development') {
   connectFunctionsEmulator(functions, '127.0.0.1', 5001)
 }
 
-// Get this working
 const sendContactForm = httpsCallable(functions, 'sendcontactform')
 
 export { app, sendContactForm }

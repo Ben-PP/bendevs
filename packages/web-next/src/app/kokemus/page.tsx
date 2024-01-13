@@ -6,20 +6,22 @@ import { JOBS_LIST_ITEMS } from '../../queries'
 import ContentPanel from '../../components/panels/ContentPanel'
 import { useEffect, useState } from 'react'
 import FilteringSidePanel from '../../components/panels/FilteringSidePanel'
+import { JobData } from 'types'
 
 const ExperienceView = () => {
-  const [selectedTags, setSelectedTags] = useState([])
-  const [notSelectedTags, setNotSelectedTags] = useState([])
-  const [experiences, setExperiences] = useState([])
+  const [selectedTags, setSelectedTags] = useState<string[]>([])
+  const [notSelectedTags, setNotSelectedTags] = useState<string[]>([])
+  const [experiences, setExperiences] = useState<JobData[]>([])
   const [isFilterHidden, setIsFilterHidden] = useState(true)
 
   useEffect(() => {
     sanityClient
       .fetch(JOBS_LIST_ITEMS, fetchOptions)
-      .then((returnedExperiences) => {
+      .then((returnedExperiences: JobData[]) => {
         setExperiences(returnedExperiences)
-        const newTags = []
+        const newTags: string[] = []
         returnedExperiences.forEach((experience) => {
+          if (!experience.tags) experience.tags = []
           experience.tags.forEach((tag) => {
             if (!newTags.includes(tag)) {
               newTags.push(tag)
@@ -30,7 +32,7 @@ const ExperienceView = () => {
       })
   }, [])
 
-  const handleTagClick = (tag) => {
+  const handleTagClick = (tag: string) => {
     if (selectedTags.includes(tag)) {
       setSelectedTags(selectedTags.filter((t) => t !== tag))
       setNotSelectedTags([...notSelectedTags, tag])
@@ -55,8 +57,9 @@ const ExperienceView = () => {
       <ContentPanel backgroundImage='/abstract8.png'>
         {experiences.map((experience) => {
           if (
-            experience.tags.some((tag) => selectedTags.includes(tag)) ||
-            selectedTags.length === 0
+            experience.tags &&
+            (experience.tags.some((tag) => selectedTags.includes(tag)) ||
+              selectedTags.length === 0)
           ) {
             return (
               <div key={experience._id} className='p-5 lg:p-20'>
