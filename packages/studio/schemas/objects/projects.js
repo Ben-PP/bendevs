@@ -4,25 +4,20 @@ export default {
   title: 'Projects',
   fields: [
     {
-      name: 'name',
+      name: 'title',
       type: 'string',
-      title: 'Name'
+      title: 'Name',
+      validation: (Rule) => Rule.required()
     },
     {
-      name: 'slug',
-      type: 'slug',
-      title: 'Slug',
-      options: {
-        source: 'name',
-        maxLength: 100,
-        slugify: (input) =>
-          input
-            .toLowerCase()
-            .replace(/\s+/g, '-')
-            .replaceAll('ä', 'a')
-            .replaceAll('ö', 'o')
-            .slice(0, 200)
-      }
+      name: 'startDate',
+      title: 'Start date',
+      type: 'date'
+    },
+    {
+      name: 'endDate',
+      title: 'End date',
+      type: 'date'
     },
     {
       name: 'github',
@@ -40,7 +35,8 @@ export default {
       title: 'Description',
       type: 'array',
       sortable: 'true',
-      of: [{ type: 'block' }]
+      of: [{ type: 'block' }],
+      validation: (Rule) => Rule.required()
     },
     {
       name: 'tags',

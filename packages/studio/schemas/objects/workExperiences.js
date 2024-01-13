@@ -6,12 +6,14 @@ export default {
     {
       name: 'company',
       title: 'Company',
-      type: 'string'
+      type: 'string',
+      validation: (Rule) => Rule.required()
     },
     {
       name: 'startDate',
       title: 'Start date',
-      type: 'date'
+      type: 'date',
+      validation: (Rule) => Rule.required()
     },
     {
       name: 'endDate',
@@ -19,21 +21,18 @@ export default {
       type: 'date'
     },
     {
-      name: 'jobTitle',
+      name: 'title',
       title: 'Job title',
-      type: 'string'
+      type: 'string',
+      validation: (Rule) => Rule.required()
     },
     {
-      name: 'shortDescription',
-      title: 'Short description',
-      type: 'string'
-    },
-    {
-      name: 'longDescription',
-      title: 'Long Description',
+      name: 'description',
+      title: 'Description',
       type: 'array',
       sortable: 'true',
-      of: [{ type: 'block' }]
+      of: [{ type: 'block' }],
+      validation: (Rule) => Rule.required()
     },
     {
       name: 'location',
