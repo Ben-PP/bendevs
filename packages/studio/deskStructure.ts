@@ -1,4 +1,6 @@
-export default (S) =>
+import { StructureBuilder } from 'sanity/desk'
+
+export default (S: StructureBuilder) =>
   S.list()
     .title('Content')
     .items([
@@ -37,6 +39,6 @@ export default (S) =>
             'aboutpage',
             'projectsList',
             'socialLinkList'
-          ].includes(listItem.getId())
+          ].includes(listItem.getId() as string)
       )
     ])

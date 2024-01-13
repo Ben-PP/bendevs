@@ -1,8 +1,17 @@
-import { useState } from 'react'
+import { CSSProperties, useState } from 'react'
 import { Octokit } from '@octokit/core'
 import { useSecrets, SettingsView } from '@sanity/studio-secrets'
 import { useClient, useCurrentUser } from 'sanity'
 import { Button, Inline } from '@sanity/ui'
+
+type SiteDeployProps = {
+  user: string
+  repo: string
+  siteName: string
+  namespace: string
+  eventType: string
+  adminRole?: string
+}
 
 const SiteDeploy = ({
   user,
@@ -11,10 +20,10 @@ const SiteDeploy = ({
   namespace,
   eventType,
   adminRole = 'administrator'
-}) => {
-  const { secrets } = useSecrets(namespace)
+}: SiteDeployProps) => {
+  const { secrets } = useSecrets<{ apiToken: string }>(namespace)
   const [showSettings, setShowSettings] = useState(false)
-  const [message, setMessage] = useState()
+  const [message, setMessage] = useState<string | null>()
   const client = useClient({ apiVersion: '2023-11-16' })
   const currentUser = useCurrentUser()
 
@@ -31,12 +40,20 @@ const SiteDeploy = ({
     })
   }
 
-  const findRole = (role) => {
+  const findRole = (role: string) => {
+    if (!currentUser) return false
     return currentUser.roles.find((r) => r.name === role)
   }
 
   const triggerGitHubActions = async () => {
     try {
+      if (!secrets) {
+        setMessage('No GitHub token found')
+        setTimeout(() => {
+          setMessage(null)
+        }, 6000)
+        return
+      }
       const octokit = new Octokit({ auth: secrets.apiToken })
       const response = await octokit.request(
         `POST /repos/${user}/${repo}/dispatches`,
@@ -50,24 +67,24 @@ const SiteDeploy = ({
       if (response.status === 204) {
         setMessage('GitHub Actions triggered successfully')
         setTimeout(() => {
-          setMessage()
+          setMessage(null)
         }, 6000)
       } else {
         setMessage('Failed to trigger GitHub Actions')
         setTimeout(() => {
-          setMessage()
+          setMessage(null)
         }, 6000)
       }
     } catch (error) {
       console.error(error)
       setMessage('Failed to trigger GitHub Actions')
       setTimeout(() => {
-        setMessage()
+        setMessage(null)
       }, 6000)
     }
   }
 
-  const baseBtnStyle = {
+  const baseBtnStyle: CSSProperties = {
     width: '8em',
     textAlign: 'center'
   }

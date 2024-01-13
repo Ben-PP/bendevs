@@ -10316,7 +10316,7 @@ __metadata:
     "@sanity/studio-secrets": "npm:^2.0.2"
     "@sanity/ui": "npm:^1.9.3"
     "@sanity/vision": "npm:^3.19.2"
-    "@types/react": "npm:^18.0.25"
+    "@types/react": "npm:^18.2.47"
     eslint: "npm:^8.6.0"
     prettier: "npm:^3.0.3"
     react: "npm:^18.2.0"
@@ -10324,7 +10324,7 @@ __metadata:
     react-is: "npm:^18.2.0"
     sanity: "npm:^3.19.2"
     styled-components: "npm:^5.2 || ^6"
-    typescript: "npm:^5.1.6"
+    typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
 
@@ -10779,7 +10779,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.1.6, typescript@npm:^5.3.3":
+"typescript@npm:^5.3.3":
   version: 5.3.3
   resolution: "typescript@npm:5.3.3"
   bin:
@@ -10789,7 +10789,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.1.6#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.3.3#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.3.3#optional!builtin<compat/typescript>":
   version: 5.3.3
   resolution: "typescript@patch:typescript@npm%3A5.3.3#optional!builtin<compat/typescript>::version=5.3.3&hash=e012d7"
   bin:

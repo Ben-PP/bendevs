@@ -1,3 +1,5 @@
+import { Rule } from 'sanity'
+
 export default {
   name: 'projects',
   type: 'document',
@@ -7,7 +9,7 @@ export default {
       name: 'title',
       type: 'string',
       title: 'Name',
-      validation: (Rule) => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'startDate',
@@ -36,7 +38,7 @@ export default {
       type: 'array',
       sortable: 'true',
       of: [{ type: 'block' }],
-      validation: (Rule) => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'tags',
