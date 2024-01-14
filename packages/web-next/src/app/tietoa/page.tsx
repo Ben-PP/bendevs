@@ -74,7 +74,7 @@ const AboutView = async () => {
         <div className='p-10'>
           <div
             className='
-          aspect-square overflow-hidden rounded-full justify-center lg:mx-5 xl:mx-18
+          aspect-square overflow-hidden rounded-full justify-center lg:mx-5 xl:mx-18 2xl:mx-20
           '
           >
             <Image
@@ -110,9 +110,7 @@ const AboutView = async () => {
       <ContentPanel backgroundImage='/abstract8.png'>
         {dataBlocks.map((block) => {
           return (
-            <div key={block._id} className='p-5 lg:px-20 lg:py-10'>
-              <PortableTextCard contentBlocks={block.content} />
-            </div>
+            <PortableTextCard key={block._id} contentBlocks={block.content} />
           )
         })}
       </ContentPanel>

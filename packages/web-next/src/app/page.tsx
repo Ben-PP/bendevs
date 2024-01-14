@@ -1,7 +1,7 @@
-import sanityClient from '../sanityClient'
-import fetchOptions from '../utils/fetchOption'
-import { FRONT_PAGE_BLOCKS } from '../queries'
-import { NavigationCard, PortableTextCard } from '@/components/cards'
+import sanityClient from 'sanityClient'
+import fetchOptions from 'utils/fetchOption'
+import { FRONT_PAGE_BLOCKS } from 'queries'
+import { NavigationCard, PortableTextCard } from 'components/cards'
 import { PortableTextBlockData } from 'types'
 
 const Home = async () => {
@@ -11,50 +11,46 @@ const Home = async () => {
   )
 
   return (
-    <main className='w-full flex-grow flex flex-col justify-start items-center'>
-      <div
-        className='flex flex-col items-center bg-cover bg-center'
-        style={{ backgroundImage: 'url("/abstract1.png")' }}
-      >
-        <div className='xl:w-2/3 :w-full mx-5 lg:mx-20 xl:mx-0 my-20'>
-          {dataBlocks.map((block) => {
-            return (
-              <PortableTextCard key={block._id} contentBlocks={block.content} />
-            )
-          })}
-        </div>
-      </div>
+    <main
+      className='w-full flex-grow flex flex-col justify-center items-center bg-cover bg-center p-5'
+      style={{ backgroundImage: 'url("/abstract1.png")' }}
+    >
+      {dataBlocks.map((block) => {
+        return (
+          <PortableTextCard
+            key={block._id}
+            margin={''}
+            contentBlocks={block.content}
+          />
+        )
+      })}
 
-      <div className='flex-grow w-full flex items-center justify-center'>
-        <div
-          className='
-        grid w-full h-full justify-center grid-cols-1 lg:grid-cols-2
-        xl:grid-cols-4 gap-5 px-5 lg:px-20 py-10 lg:py-20
+      <div
+        className='
+        grid w-full 2xl:w-2/3 justify-center grid-cols-1 lg:grid-cols-2
+        gap-5  py-10 lg:py-10
         '
-        >
-          <NavigationCard
-            title={'Tutustu'}
-            description={'Tule tutustumaan minuun ja osaamiseeni tarkemmin!'}
-            href={'/tietoa'}
-          />
-          <NavigationCard
-            title={'Projektit'}
-            description={
-              'Selaa mielenkiintoisia projekteja, joita olen tehnyt!'
-            }
-            href={'/projektit'}
-          />
-          <NavigationCard
-            title={'Työkokemus'}
-            description={'Katso mihin kaikkeen ammattitaitoani on hyödynnetty!'}
-            href={'/kokemus'}
-          />
-          <NavigationCard
-            title={'Ota yhteyttä'}
-            description={'Kiinnostuitko? Ota yhteyttä jo tänään!'}
-            href={'/yhteys'}
-          />
-        </div>
+      >
+        <NavigationCard
+          title={'Tutustu'}
+          description={'Tule tutustumaan minuun ja osaamiseeni tarkemmin!'}
+          href={'/tietoa'}
+        />
+        <NavigationCard
+          title={'Projektit'}
+          description={'Selaa mielenkiintoisia projekteja, joita olen tehnyt!'}
+          href={'/projektit'}
+        />
+        <NavigationCard
+          title={'Työkokemus'}
+          description={'Katso mihin kaikkeen ammattitaitoani on hyödynnetty!'}
+          href={'/kokemus'}
+        />
+        <NavigationCard
+          title={'Ota yhteyttä'}
+          description={'Kiinnostuitko? Ota yhteyttä jo tänään!'}
+          href={'/yhteys'}
+        />
       </div>
     </main>
   )

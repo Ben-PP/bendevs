@@ -3,7 +3,7 @@ import { TextProps } from 'types'
 const TitleSmall = ({
   children,
   weight = 'font-normal',
-  size = 'text-3xl',
+  size = 'text-2xl',
   color = 'text-primary',
   margin = '',
   wrap = true

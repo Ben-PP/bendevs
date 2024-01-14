@@ -39,23 +39,15 @@ const FilteringPage = ({ items, title, tags }: FilteringPageProps) => {
       />
 
       <ContentPanel backgroundImage='/abstract8.png'>
-        {
-          <div className='h-full'>
-            {items.map((item) => {
-              if (
-                (item.tags &&
-                  item.tags.some((tag) => selectedTags.includes(tag))) ||
-                selectedTags.length === 0
-              ) {
-                return (
-                  <div key={item._id} className='p-5 lg:p-20'>
-                    <ShowcaseCard key={item._id} child={item} />
-                  </div>
-                )
-              }
-            })}
-          </div>
-        }
+        {items.map((item) => {
+          if (
+            (item.tags &&
+              item.tags.some((tag) => selectedTags.includes(tag))) ||
+            selectedTags.length === 0
+          ) {
+            return <ShowcaseCard key={item._id} child={item} />
+          }
+        })}
       </ContentPanel>
     </div>
   )

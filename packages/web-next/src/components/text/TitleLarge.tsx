@@ -3,7 +3,7 @@ import { TextProps } from 'types'
 const TitleLarge = ({
   children,
   weight = 'font-normal',
-  size = 'text-5xl',
+  size = 'text-4xl',
   color = 'text-primary',
   margin = '',
   wrap = true

@@ -13,7 +13,7 @@ const baseStyle = 'break-words hyphens-auto text-pretty'
 const defaultComponents = {
   block: {
     h1: ({ children }: ComponentChildren) => (
-      <TitleLarge color='text-secondary' margin='mb-10' weight='font-bold'>
+      <TitleLarge margin='mb-10' weight='font-bold'>
         {children}
       </TitleLarge>
     ),

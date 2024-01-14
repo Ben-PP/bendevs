@@ -3,7 +3,7 @@ import { TextProps } from 'types'
 const BodyMedium = ({
   children,
   weight = 'font-normal',
-  size = 'text-2xl',
+  size = 'text-lg',
   color = 'text-primary-dark',
   margin = '',
   wrap = true

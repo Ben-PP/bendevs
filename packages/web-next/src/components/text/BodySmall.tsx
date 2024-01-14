@@ -3,7 +3,7 @@ import { TextProps } from 'types'
 const BodySmall = ({
   children,
   weight = 'font-normal',
-  size = 'text-xl',
+  size = 'text-md',
   color = 'text-primary',
   margin = '',
   wrap = true

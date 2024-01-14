@@ -3,7 +3,7 @@ import { TextProps } from 'types'
 const TitleMedium = ({
   children,
   weight = 'font-normal',
-  size = 'text-4xl',
+  size = 'text-3xl',
   color = 'text-primary',
   margin = '',
   wrap = true
