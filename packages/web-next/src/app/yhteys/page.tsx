@@ -122,13 +122,15 @@ const ContactView = () => {
   return (
     <div
       className='
-      flex flex-col flex-grow justify-start items-center mx-5 my-2
+      flex flex-col flex-grow justify-center items-center
+      bg-cover bg-center
     '
+      style={{ backgroundImage: 'url("/abstract1.png")' }}
     >
       <form
         className='
-          text-center border-2 rounded-xl px-5 lg:px-20 py-5 lg:py-10 m-2
-          lg:m-10 w-full lg:w-1/2
+          text-center border-4  rounded-2xl px-5 lg:px-20 py-5 lg:py-10 m-5
+          lg:m-10  lg:w-1/2 bg-card bg-opacity-90
         '
         onSubmit={onSubmit}
       >
