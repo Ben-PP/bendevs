@@ -1,7 +1,7 @@
 import SidePanel from './SidePanel'
-import TagSelector from '../tags/TagSelector'
-import { TitleMedium, TitleSmall } from '../text'
-import { Button } from '../buttons'
+import { TagSelector } from 'components/tags'
+import { TitleMedium, TitleSmall } from 'components/text'
+import { Button } from 'components/buttons'
 import { ButtonSize } from 'types'
 
 interface FilterProps {
@@ -67,7 +67,7 @@ const FilteringSidePanel = ({
 }: FilteringSidePanelProps) => {
   return (
     <SidePanel>
-      <div className='sticky top-16 left-0 text-center lg:text-left px-4 py-4 lg:px-6 lg:py-10'>
+      <div className='lg:sticky top-16 left-0 text-center lg:text-left px-4 py-4 lg:px-6 lg:py-10'>
         <TitleMedium margin='' wrap={false}>
           {title}
         </TitleMedium>
