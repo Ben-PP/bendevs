@@ -38,7 +38,7 @@ const FilteringPage = ({ items, title, tags }: FilteringPageProps) => {
         isFilterHidden={isFilterHidden}
       />
 
-      <ContentPanel backgroundImage='/abstract8.png'>
+      <ContentPanel backgroundImage='/abstract8.webp'>
         {items.map((item) => {
           if (
             (item.tags &&

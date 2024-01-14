@@ -57,10 +57,10 @@ const AboutView = async () => {
     ABOUT_PAGE_BLOCKS,
     fetchOptions
   )
-  const profileImageUrl = await sanityClient.fetch(
+  const profileImageUrl = `${await sanityClient.fetch(
     PROFILE_IMAGE_URL,
     fetchOptions
-  )
+  )}?fm=webp`
   const cvUrl: string = `${await sanityClient.fetch(
     CV_URL,
     fetchOptions
@@ -107,7 +107,7 @@ const AboutView = async () => {
           <Buttons className='hidden lg:inline-block' cvUrl={cvUrl} />
         </div>
       </SidePanel>
-      <ContentPanel backgroundImage='/abstract8.png'>
+      <ContentPanel backgroundImage='/abstract8.webp'>
         {dataBlocks.map((block) => {
           return (
             <PortableTextCard key={block._id} contentBlocks={block.content} />

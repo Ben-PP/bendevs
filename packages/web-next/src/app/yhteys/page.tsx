@@ -18,7 +18,7 @@ const ContactView = async () => {
       flex flex-col flex-grow justify-center items-center
       bg-fixed bg-cover bg-center
     '
-      style={{ backgroundImage: 'url("/abstract1.png")' }}
+      style={{ backgroundImage: 'url("/abstract1.webp")' }}
     >
       <ContactForm />
       <div

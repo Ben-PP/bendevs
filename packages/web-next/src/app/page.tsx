@@ -12,8 +12,8 @@ const Home = async () => {
 
   return (
     <main
-      className='w-full flex-grow flex flex-col justify-center items-center bg-cover bg-center p-5'
-      style={{ backgroundImage: 'url("/abstract1.png")' }}
+      className='w-full flex-grow flex flex-col justify-center items-center bg-cover bg-fixed bg-center p-5'
+      style={{ backgroundImage: 'url("/abstract1.webp")' }}
     >
       {dataBlocks.map((block) => {
         return (
