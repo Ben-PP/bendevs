@@ -28,7 +28,7 @@ const ShowcaseCard = ({ child }: ShowcaseCardProps) => {
 
   return (
     <CardBase>
-      <TitleLarge color='text-secondary' weight='font-bold' margin='mb-10'>
+      <TitleLarge color='text-primary' weight='font-bold' margin='mb-10'>
         {child.title}
       </TitleLarge>
       {startDate && (

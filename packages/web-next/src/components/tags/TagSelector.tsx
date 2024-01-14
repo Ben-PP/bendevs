@@ -1,5 +1,5 @@
 import TagButton from './TagButton'
-import { TitleXSmall, BodyXSmall } from '../text'
+import { TitleXSmall, TitleSmall, BodyXSmall } from '../text'
 
 type TagsProps = {
   tags: JSX.Element[]
@@ -9,7 +9,9 @@ type TagsProps = {
 const Tags = ({ tags, title }: TagsProps) => {
   return (
     <>
-      <TitleXSmall margin='my-4'>{title}</TitleXSmall>
+      <TitleSmall color='text-primary-dark' margin='my-4'>
+        {title}
+      </TitleSmall>
       {tags.length > 0 && (
         <div className='flex flex-wrap justify-center lg:justify-start '>
           {...tags}
@@ -34,7 +36,7 @@ const TagSorter = ({
   const createTagList = (tags: string[], isHollow?: boolean) => {
     return tags.sort().map((tag) => {
       return (
-        <div key={tag} className='mx-1 my-1'>
+        <div key={tag} className='mx-2 my-2'>
           <TagButton
             isHollow={isHollow}
             text={tag}

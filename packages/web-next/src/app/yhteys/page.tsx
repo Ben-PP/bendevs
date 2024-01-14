@@ -30,8 +30,9 @@ type FormFieldProps = {
 
 const styles = {
   input: `
-  shadow appearance-none border rounded-xl w-full my-5 py-2 px-3 text-accent-dark
-  leading-tight focus:outline-none focus:shadow-hover-form-focus
+  shadow appearance-none border rounded-xl w-full my-5 py-2 px-3
+  text-accent-dark leading-tight focus:outline-none
+  focus:shadow-hover-form-focus
   `,
   errorMessage: 'border-red-600 border-2 rounded-xl py-2'
 }
@@ -119,10 +120,14 @@ const ContactView = () => {
   }
 
   return (
-    <div className='flex flex-col flex-grow justify-start items-center mx-5'>
+    <div
+      className='
+      flex flex-col flex-grow justify-start items-center mx-5 my-2
+    '
+    >
       <form
         className='
-          text-center border-2 rounded-xl px-2 lg:px-20 py-2 lg:py-10 m-2
+          text-center border-2 rounded-xl px-5 lg:px-20 py-5 lg:py-10 m-2
           lg:m-10 w-full lg:w-1/2
         '
         onSubmit={onSubmit}
@@ -131,7 +136,11 @@ const ContactView = () => {
         <FormField label='Nimi*' controller={name} />
         <FormField label='Aihe*' controller={subject} />
         <FormField label='Viesti*' controller={content} multiline={true} />
-        <div className='flex my-5 text-lg justify-center items-center'>
+        <div
+          className='
+            flex my-5 mx-8 text-lg justify-center items-center text-left
+        '
+        >
           <input
             type='checkbox'
             className='mr-3 h-6 w-6 flex-shrink-0'

@@ -35,7 +35,7 @@ const Filter = ({
     `}
     >
       <div className='flex flex-row items-center justify-center lg:justify-start'>
-        <TitleSmall>Suodata</TitleSmall>
+        <TitleSmall weight='font-bold'>Suodata</TitleSmall>
         <div className='px-2'></div>
         <Button
           text='Tyhjennä'
@@ -46,6 +46,7 @@ const Filter = ({
           }}
         />
       </div>
+      <div className='rounded-xl border-2 border-primary-dark my-4 mx-10 lg:mx-0 lg:mr-10'></div>
       <TagSelector
         handleTagClick={handleTagClick}
         notSelectedTags={notSelectedTags}
