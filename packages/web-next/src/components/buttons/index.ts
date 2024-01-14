@@ -1,3 +1,4 @@
 import Button from './Button'
+import SocialButton from './SocialButton'
 
-export { Button }
+export { Button, SocialButton }

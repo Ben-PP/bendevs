@@ -1,9 +1,8 @@
 import BeatLoader from 'react-spinners/BeatLoader'
 import { ButtonSize, ButtonType } from 'types'
-import { IconType } from 'react-icons'
 import React from 'react'
 
-interface ButtonProps {
+export interface ButtonProps {
   text: string
   icon?: React.ReactNode
   onClick?: () => void
