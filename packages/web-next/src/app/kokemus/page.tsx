@@ -1,8 +1,16 @@
 import sanityClient from 'sanityClient'
 import { JOBS_LIST_ITEMS } from 'queries'
 import fetchOptions from 'utils/fetchOption'
+import { Metadata } from 'next'
 import { FilteringPage } from 'components/panels'
 import { JobData } from 'types'
+
+export const metadata: Metadata = {
+  title: 'Bendevs | Työkokemus',
+  description: `Tällä sivulla voit tutustua mitä Karel Parkkola on tehnyt
+  työelämässä. Työkokemusta löytyy esimerkiksi webmasterina,
+  palvelinylläpidosta ja ohjelmoinnin opettamisesta.`
+}
 
 const ExperienceView = async () => {
   const experiences: JobData[] = await sanityClient.fetch(

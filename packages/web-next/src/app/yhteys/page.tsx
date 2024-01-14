@@ -1,10 +1,17 @@
 import sanityClient from 'sanityClient'
 import fetchOptions from 'utils/fetchOption'
 import { SOCIAL_LINKS } from 'queries'
+import { Metadata } from 'next'
 import ContactForm from './components/ContactForm'
 import { SocialButton } from 'components/buttons'
 import { TitleLarge } from 'components/text'
 import { ButtonSize, SocialLinkData } from 'types'
+
+export const metadata: Metadata = {
+  title: 'Bendevs | Yhteys',
+  description: `Tällä sivulla voit lähettää viestin henkilölle Karel Parkkola
+  ja tutustua hänen sosiaalisen median tileihinsä.`
+}
 
 const ContactView = async () => {
   const socialLinks: SocialLinkData[] = await sanityClient.fetch(

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { Metadata } from 'next'
 import Link from 'next/link'
 import sanityClient from 'sanityClient'
 import fetchOptions from 'utils/fetchOption'
@@ -10,6 +11,13 @@ import { TitleMedium, TitleSmall, BodySmall } from 'components/text'
 import { Button } from 'components/buttons'
 import { PortableTextBlockData, ButtonSize } from 'types'
 import { RxDownload, RxEnvelopeClosed } from 'react-icons/rx'
+
+export const metadata: Metadata = {
+  title: 'Bendevs | Karel Parkkola',
+  description: `Tällä sivulla voit tutustua henkilöön Karel Parkkola. Karelin
+  osaamiseen kuuluu esimerkiksi React, TypeScript, JavaScript, Dart, Flutter,
+   Python, palomuurit, palvelimet ja hyvien vitsien kertominen.`
+}
 
 const Buttons = ({
   className,
@@ -60,7 +68,7 @@ const AboutView = async () => {
   const profileImageUrl = `${await sanityClient.fetch(
     PROFILE_IMAGE_URL,
     fetchOptions
-  )}?fm=webp`
+  )}?fm=webp&w=500&h=500`
   const cvUrl: string = `${await sanityClient.fetch(
     CV_URL,
     fetchOptions
@@ -82,7 +90,7 @@ const AboutView = async () => {
               width={500}
               height={500}
               src={profileImageUrl}
-              alt='Image of Karel Parkkola'
+              alt='Erittäin komea kuva henkilöstä Karel Parkkola'
             />
           </div>
           <div className='text-center my-8'>
