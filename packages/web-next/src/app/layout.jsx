@@ -12,12 +12,11 @@ const RootLayout = ({ children }) => {
   return (
     <html lang='en'>
       <body className='flex flex-col bg-secondary text-primary'>
-        
         <div className='min-h-screen flex-grow flex flex-col'>
           <Navbar height={navbarHeight} />
           <div className={navbarHeight}></div>
 
-          <div className={`flex-grow flex flex-col w-screen`}>{children}</div>
+          <div className={`flex-grow flex flex-col w-full`}>{children}</div>
         </div>
         <Footer />
       </body>
