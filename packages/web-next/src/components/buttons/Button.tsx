@@ -1,8 +1,11 @@
 import BeatLoader from 'react-spinners/BeatLoader'
 import { ButtonSize, ButtonType } from 'types'
+import { IconType } from 'react-icons'
+import React from 'react'
 
 interface ButtonProps {
   text: string
+  icon?: React.ReactNode
   onClick?: () => void
   type?: ButtonType
   size?: ButtonSize
@@ -12,6 +15,7 @@ interface ButtonProps {
 
 const Button = ({
   text,
+  icon,
   onClick,
   type,
   size,
@@ -43,7 +47,10 @@ const Button = ({
       type={type}
       onClick={onClick}
     >
-      {isLoading ? <BeatLoader color='white' /> : text}
+      <div className='flex flex-row items-center justify-center'>
+        {isLoading ? <BeatLoader color='white' /> : text}
+        <div className='pl-3'>{icon && icon}</div>
+      </div>
     </button>
   )
 }

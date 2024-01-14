@@ -13,6 +13,14 @@ export default {
           to: [{ type: 'contentBlocks' }]
         }
       ]
+    },
+    {
+      name: 'cv',
+      title: 'CV',
+      type: 'file',
+      options: {
+        accept: '.pdf'
+      }
     }
   ],
   preview: {

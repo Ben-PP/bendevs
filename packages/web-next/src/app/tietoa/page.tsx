@@ -1,13 +1,56 @@
 import Image from 'next/image'
-import sanityClient from '../../sanityClient'
-import fetchOptions from '../../utils/fetchOption'
-import { ABOUT_PAGE_BLOCKS, PROFILE_IMAGE_URL, PROFILE } from '../../queries'
-import PortableTextCard from '../../components/cards/PortableTextCard'
-import TagList from '../../components/tags/TagList'
-import SidePanel from '../../components/panels/SidePanel'
-import ContentPanel from '../../components/panels/ContentPanel'
-import { TitleMedium, TitleSmall, BodySmall } from '@/components/text'
-import { PortableTextBlockData } from 'types'
+import Link from 'next/link'
+import sanityClient from 'sanityClient'
+import fetchOptions from 'utils/fetchOption'
+import { ABOUT_PAGE_BLOCKS, PROFILE_IMAGE_URL, PROFILE, CV_URL } from 'queries'
+import { PortableTextCard } from 'components/cards'
+import { TagList } from 'components/tags'
+import { ContentPanel, SidePanel } from 'components/panels'
+import { TitleMedium, TitleSmall, BodySmall } from 'components/text'
+import { Button } from 'components/buttons'
+import { PortableTextBlockData, ButtonSize } from 'types'
+import { RxDownload, RxEnvelopeClosed } from 'react-icons/rx'
+
+const Buttons = ({
+  className,
+  cvUrl
+}: {
+  className?: string
+  cvUrl: string
+}) => {
+  return (
+    <div className={`${className} w-full my-10 text-center`}>
+      <TitleSmall color='text-primary-dark' weight='font-bold'>
+        Lisää
+      </TitleSmall>
+      <div className='text-center mt-10'>
+        <a
+          href={cvUrl}
+          download='cv_karel_parkkola'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          <Button
+            text='Lataa cv'
+            icon={<RxDownload />}
+            size={ButtonSize.LARGE}
+            isHollow={true}
+          />
+        </a>
+      </div>
+      <div className='text-center mt-10'>
+        <Link href='/yhteys'>
+          <Button
+            text='Ota yhteyttä'
+            icon={<RxEnvelopeClosed />}
+            size={ButtonSize.LARGE}
+            isHollow={true}
+          />
+        </Link>
+      </div>
+    </div>
+  )
+}
 
 const AboutView = async () => {
   const dataBlocks: PortableTextBlockData[] = await sanityClient.fetch(
@@ -18,6 +61,11 @@ const AboutView = async () => {
     PROFILE_IMAGE_URL,
     fetchOptions
   )
+  const cvUrl: string = `${await sanityClient.fetch(
+    CV_URL,
+    fetchOptions
+  )}?d1=cv_karel_parkkola.pdf`
+
   const profile = await sanityClient.fetch(PROFILE, fetchOptions)
 
   return (
@@ -26,7 +74,7 @@ const AboutView = async () => {
         <div className='p-10'>
           <div
             className='
-          aspect-square overflow-hidden rounded-full justify-center
+          aspect-square overflow-hidden rounded-full justify-center lg:mx-5 xl:mx-18
           '
           >
             <Image
@@ -51,6 +99,12 @@ const AboutView = async () => {
             </TitleSmall>
             <TagList tags={profile.skills} />
           </div>
+          <div className='lg:hidden inline-block text-center pt-10'>
+            <TitleSmall color='text-primary-dark'>
+              Etsikö CV:tä? Lataus sivun alaosassa!
+            </TitleSmall>
+          </div>
+          <Buttons className='hidden lg:inline-block' cvUrl={cvUrl} />
         </div>
       </SidePanel>
       <ContentPanel backgroundImage='/abstract8.png'>
@@ -62,6 +116,7 @@ const AboutView = async () => {
           )
         })}
       </ContentPanel>
+      <Buttons className='lg:hidden inline-block' cvUrl={cvUrl} />
     </div>
   )
 }

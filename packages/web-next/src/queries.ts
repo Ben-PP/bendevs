@@ -37,3 +37,7 @@ export const PROFILE = groq`
     github
   }
 `
+
+export const CV_URL = groq`
+  *[_type == "aboutpage"][0].cv.asset -> url
+`

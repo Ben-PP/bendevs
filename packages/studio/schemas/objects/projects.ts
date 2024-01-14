@@ -49,6 +49,7 @@ export default {
           type: 'string'
         }
       ],
+      validation: (Rule: Rule) => Rule.required(),
       options: {
         layout: 'tags'
       }
