@@ -4,13 +4,13 @@ import Footer from '../components/footer/Footer'
 
 export const metadata = {
   title: 'Bendevs',
-  description: 'Homepage of Karel Parkkola'
+  description: 'Karel Parkkolan kotisivut'
 }
 
 const RootLayout = ({ children }) => {
   const navbarHeight = 'h-16'
   return (
-    <html lang='en'>
+    <html lang='fi'>
       <body className='flex flex-col bg-secondary text-primary'>
         <div className='min-h-screen flex-grow flex flex-col'>
           <Navbar height={navbarHeight} />

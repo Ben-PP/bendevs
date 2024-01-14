@@ -1,8 +1,17 @@
 import sanityClient from 'sanityClient'
 import fetchOptions from 'utils/fetchOption'
 import { PROJECTS_LIST_ITEMS } from 'queries'
-import { ProjectData } from 'types'
+import { Metadata } from 'next'
 import { FilteringPage } from 'components/panels'
+import { ProjectData } from 'types'
+
+export const metadata: Metadata = {
+  title: 'Bendevs | Projektit',
+  description: `Tällä sivulla voit tutustua henkilön Karel Parkkola
+  projekteihin. Karel on tehnyt monenlaisia projekteja mobiilisovelluksista
+  verkkosivuihin ja web-sovelluksiin. Projekteissa on käytetty esimerkiksi
+  Flutteria, Reactia, Pythonia, TypeScriptiä ja Dartia.`
+}
 
 const ProjectsView = async () => {
   const projects: ProjectData[] = await sanityClient.fetch(

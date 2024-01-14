@@ -1,8 +1,17 @@
 import sanityClient from 'sanityClient'
 import fetchOptions from 'utils/fetchOption'
 import { FRONT_PAGE_BLOCKS } from 'queries'
+import { Metadata } from 'next'
 import { NavigationCard, PortableTextCard } from 'components/cards'
 import { PortableTextBlockData } from 'types'
+
+export const metadata: Metadata = {
+  title: 'Bendevs | Etusivu',
+  description: `Karel Parkkolan kotisivut. Karel Parkkola on osaava
+  ohjelmistokehittäjä monen vuoden kokemuksella. Karelin osaamiseen kuuluu
+  esimerkiksi React, Node.js, TypeScript, Next.js, Dart, Flutter, Python ja
+  palvelinylläpito`
+}
 
 const Home = async () => {
   const dataBlocks: PortableTextBlockData[] = await sanityClient.fetch(
