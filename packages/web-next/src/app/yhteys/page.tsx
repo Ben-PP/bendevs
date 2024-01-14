@@ -16,7 +16,7 @@ const ContactView = async () => {
     <div
       className='
       flex flex-col flex-grow justify-center items-center
-      bg-cover bg-center
+      bg-fixed bg-cover bg-center
     '
       style={{ backgroundImage: 'url("/abstract1.png")' }}
     >
