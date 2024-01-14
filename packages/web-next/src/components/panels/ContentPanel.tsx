@@ -6,7 +6,7 @@ type ContentPanelProps = {
 const ContentPanel = ({ children, backgroundImage }: ContentPanelProps) => {
   return (
     <div
-      className='w-full bg-cover bg-center'
+      className='w-full bg-cover bg-center bg-fixed'
       style={{ backgroundImage: `url("${backgroundImage}")` }}
     >
       {children}

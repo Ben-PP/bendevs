@@ -56,20 +56,23 @@ const ProjectsView = () => {
       />
 
       <ContentPanel backgroundImage='/abstract8.png'>
-        {projects &&
-          projects.map((project) => {
-            if (
-              (project.tags &&
-                project.tags.some((tag) => selectedTags.includes(tag))) ||
-              selectedTags.length === 0
-            ) {
-              return (
-                <div key={project._id} className='p-5 lg:p-20'>
-                  <ShowcaseCard key={project._id} child={project} />
-                </div>
-              )
-            }
-          })}
+        {projects && (
+          <div className='h-full'>
+            {projects.map((project) => {
+              if (
+                (project.tags &&
+                  project.tags.some((tag) => selectedTags.includes(tag))) ||
+                selectedTags.length === 0
+              ) {
+                return (
+                  <div key={project._id} className='p-5 lg:p-20'>
+                    <ShowcaseCard key={project._id} child={project} />
+                  </div>
+                )
+              }
+            })}
+          </div>
+        )}
       </ContentPanel>
     </div>
   )

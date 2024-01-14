@@ -78,7 +78,9 @@ const Navbar = ({ height }: NavbarProps) => {
 
   return (
     <div
-      className={`bg-tertiary fixed top-0 w-full ${showMenu ? 'h-full' : ''}`}
+      className={`bg-tertiary fixed top-0 z-30 w-full ${
+        showMenu ? 'h-full' : ''
+      }`}
     >
       <div
         className={`
