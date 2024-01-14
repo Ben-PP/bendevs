@@ -1,8 +1,8 @@
 'use client'
 import { useState } from 'react'
 import { ProjectData, JobData } from 'types'
-import { ShowcaseCard } from '@/components/cards'
-import { FilteringSidePanel, ContentPanel } from '@/components/panels'
+import { ShowcaseCard } from 'components/cards'
+import { FilteringSidePanel, ContentPanel } from 'components/panels'
 
 type FilteringPageProps = {
   items: ProjectData[] | JobData[]

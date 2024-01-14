@@ -90,7 +90,7 @@ const AboutView = async () => {
               width={500}
               height={500}
               src={profileImageUrl}
-              alt='Image of Karel Parkkola'
+              alt='Erittäin komea kuva henkilöstä Karel Parkkola'
             />
           </div>
           <div className='text-center my-8'>
