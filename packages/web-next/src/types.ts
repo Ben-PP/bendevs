@@ -15,6 +15,16 @@ export interface TextProps {
   wrap?: boolean
 }
 
+export enum OrderByField {
+  TITLE = 'title',
+  DATE = 'startDate'
+}
+
+export interface OrderBy {
+  field: OrderByField
+  orderAsc: boolean
+}
+
 export enum ButtonType {
   BUTTON = 'button',
   SUBMIT = 'submit',
