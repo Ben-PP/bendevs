@@ -35,7 +35,12 @@ const getColor = (pathname: string, href: string) => {
 
 const MobileMenu = ({ onPageSelect, pathname }: MobileMenuProps) => {
   return (
-    <div className='flex flex-col items-center justify-start  bg-secondary shadow-nav h-full '>
+    <div
+      className='
+        flex flex-col items-center justify-start  bg-secondary
+        shadow-nav h-full
+    '
+    >
       {menuItems.map((item) => {
         return (
           <NavItem
@@ -96,7 +101,9 @@ const Navbar = ({ height }: NavbarProps) => {
 
         <div className={'lg:hidden flex flex-col items-end'}>
           <button
-            className='text-primary-dark focus:outline-none'
+            className={`${
+              showMenu ? 'text-secondary-dark' : 'text-primary-dark'
+            } focus:outline-none`}
             onClick={() => setShowMenu(!showMenu)}
           >
             <RxHamburgerMenu size={50} />
