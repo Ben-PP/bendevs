@@ -122,7 +122,7 @@ const ContactForm = () => {
   return (
     <form
       className='
-          text-center border-4  rounded-2xl px-5 lg:px-20 py-5 lg:py-10 m-5
+          text-center border-4 border-primary-dark rounded-2xl px-5 lg:px-20 py-5 lg:py-10 m-5
           lg:m-10  lg:w-1/2 bg-card bg-opacity-90
         '
       onSubmit={onSubmit}
