@@ -58,7 +58,7 @@ const ShowcaseCard = ({ child }: ShowcaseCardProps) => {
         </div>
       </div>
       {/* TODO Convert these to a button */}
-      {'github' in child && 'availableAt' in child && (
+      {('github' in child || 'availableAt' in child) && (
         <div className='flex flex-col lg:flex-row justify-evenly mt-8'>
           {child.github && (
             <a
